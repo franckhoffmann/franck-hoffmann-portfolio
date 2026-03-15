@@ -6,24 +6,19 @@
     <meta name="description" content="Franck Hoffmann — Product Design Leader. Case studies in enterprise UX, identity, and platform design." />
     <title>Franck Hoffmann — Product Design Leader</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>F</text></svg>" />
-    <!-- GitHub Pages SPA: decode route encoded by 404.html and restore it -->
+    <!-- GitHub Pages SPA: decode the ?/route query param written by 404.html -->
     <script>
-      (function () {
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          var url = new URL(redirect);
-          var route = url.searchParams.get('/');
-          if (route) {
-            var restored =
-              url.origin +
-              url.pathname +
-              (route ? '/' + route.replace(/~and~/g, '&') : '') +
-              (url.hash || '');
-            history.replaceState(null, null, restored);
-          }
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(
+            null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
         }
-      })();
+      }(window.location));
     </script>
   </head>
   <body>
