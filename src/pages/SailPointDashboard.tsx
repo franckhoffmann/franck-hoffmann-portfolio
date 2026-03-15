@@ -40,12 +40,15 @@ function ImageLightbox({
             <Dialog.Title>{imageAlt}</Dialog.Title>
             <Dialog.Description>Full size image view</Dialog.Description>
           </VisuallyHidden.Root>
-          <div className="relative">
+          {/* Container: scrollable so tall images don't overflow the viewport */}
+          <div
+            className="relative max-h-[90vh] overflow-y-auto rounded-lg"
+            style={{ width: 'min(2500px, calc(100vw - 64px))' }}
+          >
             <img
               src={imageSrc}
               alt={imageAlt}
-              className="block h-auto max-h-[90vh] w-auto rounded-lg object-contain"
-              style={{ maxWidth: 'min(2500px, calc(100vw - 64px))' }}
+              className="block h-auto w-full rounded-lg"
             />
             <Dialog.Close asChild>
               <button
