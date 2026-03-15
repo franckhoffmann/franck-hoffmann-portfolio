@@ -61,17 +61,16 @@ export default function Home() {
         >
           {/* Hero text */}
           <div className="mx-auto max-w-[1280px] px-6 pb-0 pt-32 md:px-12">
-            <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
+            <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-[-0.04em] text-white md:text-5xl">
               "A choice architect has the responsibility for organizing the context in which people make decisions."
             </h1>
-            <p className="mt-4 text-base font-light text-white/60">
+            <p className="mt-4 text-base font-semibold text-white/60">
               — Richard Thaler, <em>Nudge</em>
             </p>
-            <div className="mt-6 flex gap-4 text-sm font-medium text-white/80">
+            <div className="mt-16 flex flex-col gap-0 text-[2rem] font-bold leading-tight text-white/80">
+              <span>—</span>
               <span>Design Leader</span>
-              <span className="text-white/40">·</span>
               <span>Choice Architect</span>
-              <span className="text-white/40">·</span>
               <span>Team Builder</span>
             </div>
           </div>
