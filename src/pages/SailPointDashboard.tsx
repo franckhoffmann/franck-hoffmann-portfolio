@@ -35,7 +35,7 @@ function ImageLightbox({
     <Dialog.Root open={isOpen} onOpenChange={onClose}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/90 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] max-w-[95vw] -translate-x-1/2 -translate-y-1/2 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95">
+        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95">
           <VisuallyHidden.Root>
             <Dialog.Title>{imageAlt}</Dialog.Title>
             <Dialog.Description>Full size image view</Dialog.Description>
@@ -44,7 +44,8 @@ function ImageLightbox({
             <img
               src={imageSrc}
               alt={imageAlt}
-              className="h-auto max-h-[90vh] w-auto max-w-[95vw] rounded-lg object-contain"
+              className="block h-auto max-h-[90vh] w-auto rounded-lg object-contain"
+              style={{ maxWidth: 'min(2500px, calc(100vw - 64px))' }}
             />
             <Dialog.Close asChild>
               <button
