@@ -62,11 +62,18 @@ export default function Home() {
           {/* Hero text */}
           <div className="mx-auto max-w-[1280px] px-6 pb-0 pt-32 md:px-12">
             <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
-              Product Design,<br />at scale.
+              "A choice architect has the responsibility for organizing the context in which people make decisions."
             </h1>
-            <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-white/80">
-              I lead design for complex enterprise products — identity, security, and the systems that help people do their best work.
+            <p className="mt-4 text-base font-light text-white/60">
+              — Richard Thaler, <em>Nudge</em>
             </p>
+            <div className="mt-6 flex gap-4 text-sm font-medium text-white/80">
+              <span>Design Leader</span>
+              <span className="text-white/40">·</span>
+              <span>Choice Architect</span>
+              <span className="text-white/40">·</span>
+              <span>Team Builder</span>
+            </div>
           </div>
 
           {/* Case study grid — overlaps bottom of hero image */}
