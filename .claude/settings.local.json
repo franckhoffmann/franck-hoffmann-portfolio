@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"/Users/franckhoffmann/projects/Portfolio/public/images\")",
+      "Bash(cp \"/Users/franckhoffmann/Documents/_Personal/Portfolio/POC SailPoint Dashboard export from Figma/src/assets/69cf651f46fcc5fb38e964d0d6f0914006287212.png\" \"/Users/franckhoffmann/projects/Portfolio/public/images/hero-sailpoint-office.png\")",
+      "Bash(cp \"/Users/franckhoffmann/Documents/_Personal/Portfolio/POC SailPoint Dashboard export from Figma/src/assets/3fccbad3e1f99cdcd918425b85f00109c7b668b4.png\" \"/Users/franckhoffmann/projects/Portfolio/public/images/dashboard-interface.png\")",
+      "Bash(cp \"/Users/franckhoffmann/Documents/_Personal/Portfolio/POC SailPoint Dashboard export from Figma/src/assets/e08b857018b749783bd5ba8a921271dcba485aaa.png\" \"/Users/franckhoffmann/projects/Portfolio/public/images/miro-process.png\")",
+      "Bash(cp \"/Users/franckhoffmann/Documents/_Personal/Portfolio/POC SailPoint Dashboard export from Figma/src/assets/34dec47a1701d96873bcc2406973df1ec626ab69.png\" \"/Users/franckhoffmann/projects/Portfolio/public/images/old-dashboard.png\")",
+      "Bash(cp \"/Users/franckhoffmann/Documents/_Personal/Portfolio/POC SailPoint Dashboard export from Figma/src/assets/90cbb90f4c32736d1537b0f83e0e2e4e92f2902b.png\" \"/Users/franckhoffmann/projects/Portfolio/public/images/dashboard-big.png\")",
+      "Bash(cp \"/Users/franckhoffmann/Documents/_Personal/Portfolio/POC SailPoint Dashboard export from Figma/src/assets/9e46969ea3d5f3caaa265025b9aff22b5a899b13.png\" \"/Users/franckhoffmann/projects/Portfolio/public/images/process-big.png\")",
+      "Bash(cp \"/Users/franckhoffmann/Documents/_Personal/Portfolio/POC SailPoint Dashboard export from Figma/src/assets/3801d99493d855ccd22a7a68e6e0b165914dbb86.png\" \"/Users/franckhoffmann/projects/Portfolio/public/images/old-dashboard-big.png\")",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)"
+    ]
+  }
+}
