@@ -64,7 +64,7 @@ export default function Home() {
             <h1 className="relative max-w-3xl text-4xl font-bold leading-tight tracking-[-0.04em] text-white md:text-5xl">
               <span className="absolute -top-8 -left-2 text-8xl leading-none text-white/30 select-none">&ldquo;</span>
               <em>A choice architect has the responsibility for organizing the context in which people make decisions.</em>
-              <span className="text-8xl leading-none text-white/30 align-bottom select-none">&rdquo;</span>
+              <span className="inline-block text-8xl leading-[0] text-white/30 select-none align-bottom -ml-1">&rdquo;</span>
             </h1>
             <p className="mt-4 text-base font-semibold text-white/60">
               — Richard Thaler, <em>Nudge</em>
