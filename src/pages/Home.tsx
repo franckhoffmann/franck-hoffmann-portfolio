@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import heroBg from '/hero-bg.jpg'
 
 const CASE_STUDIES = [
   {
@@ -53,48 +54,57 @@ export default function Home() {
       <Nav />
 
       <main className="flex-1">
-        {/* Hero */}
-        <section className="mx-auto max-w-[1280px] px-6 py-24 md:px-12 md:py-32">
-          <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-neutral-900 md:text-5xl lg:text-6xl">
-            Product Design,<br />at scale.
-          </h1>
-          <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-neutral-500">
-            I lead design for complex enterprise products — identity, security, and the systems that help people do their best work.
-          </p>
-        </section>
-
-        {/* Case study grid */}
-        <section className="mx-auto max-w-[1280px] px-6 pb-24 md:px-12">
-          <div className="grid gap-px border border-neutral-100 bg-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
-            {CASE_STUDIES.map(study => (
-              study.available ? (
-                <Link
-                  key={study.href}
-                  to={study.href}
-                  className="group flex flex-col gap-3 bg-white p-8 transition-colors hover:bg-neutral-50"
-                >
-                  <span className="font-['Liberation_Mono',monospace] text-xs uppercase tracking-wider text-neutral-400">
-                    {study.tag}
-                  </span>
-                  <h2 className="text-lg font-semibold text-neutral-900 group-hover:text-[#0055a5]">
-                    {study.label} →
-                  </h2>
-                  <p className="text-sm leading-relaxed text-neutral-500">{study.description}</p>
-                </Link>
-              ) : (
-                <div
-                  key={study.href}
-                  className="flex flex-col gap-3 bg-white p-8 opacity-50"
-                >
-                  <span className="font-['Liberation_Mono',monospace] text-xs uppercase tracking-wider text-neutral-400">
-                    {study.tag}
-                  </span>
-                  <h2 className="text-lg font-semibold text-neutral-400">{study.label}</h2>
-                  <p className="text-sm leading-relaxed text-neutral-400">{study.description}</p>
-                </div>
-              )
-            ))}
+        {/* Hero with background image */}
+        <section
+          className="relative w-full bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        >
+          {/* Hero text */}
+          <div className="mx-auto max-w-[1280px] px-6 pb-0 pt-32 md:px-12">
+            <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
+              Product Design,<br />at scale.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-white/80">
+              I lead design for complex enterprise products — identity, security, and the systems that help people do their best work.
+            </p>
           </div>
+
+          {/* Case study grid — overlaps bottom of hero image */}
+          <div className="mx-auto max-w-[1280px] px-6 pb-0 pt-16 md:px-12">
+            <div className="grid gap-px border border-neutral-200/60 bg-neutral-200/60 bg-[rgba(245,245,245,0.9)] sm:grid-cols-2 lg:grid-cols-3">
+              {CASE_STUDIES.map(study => (
+                study.available ? (
+                  <Link
+                    key={study.href}
+                    to={study.href}
+                    className="group flex flex-col gap-3 bg-[rgba(255,255,255,0.28)] p-8 transition-colors hover:bg-white/50"
+                  >
+                    <span className="font-['Liberation_Mono',monospace] text-xs uppercase tracking-wider text-neutral-400">
+                      {study.tag}
+                    </span>
+                    <h2 className="text-lg font-semibold text-neutral-900 group-hover:text-[#0055a5]">
+                      {study.label} →
+                    </h2>
+                    <p className="text-sm leading-relaxed text-neutral-500">{study.description}</p>
+                  </Link>
+                ) : (
+                  <div
+                    key={study.href}
+                    className="flex flex-col gap-3 bg-white p-8 opacity-50"
+                  >
+                    <span className="font-['Liberation_Mono',monospace] text-xs uppercase tracking-wider text-neutral-400">
+                      {study.tag}
+                    </span>
+                    <h2 className="text-lg font-semibold text-neutral-400">{study.label}</h2>
+                    <p className="text-sm leading-relaxed text-neutral-400">{study.description}</p>
+                  </div>
+                )
+              ))}
+            </div>
+          </div>
+
+          {/* Spacer so footer sits below the hero image */}
+          <div className="h-24" />
         </section>
       </main>
 
