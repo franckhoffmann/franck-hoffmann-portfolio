@@ -6,14 +6,15 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
 // Image paths — assets live in public/images/ and are served from the base URL
+const base = import.meta.env.BASE_URL
 const img = {
-  hero: 'images/hero-sailpoint-office.png',
-  dashboardInterface: 'images/dashboard-interface.png',
-  miroProcess: 'images/miro-process.png',
-  oldDashboard: 'images/old-dashboard.png',
-  dashboardBig: 'images/dashboard-big.png',
-  processBig: 'images/process-big.png',
-  oldDashboardBig: 'images/old-dashboard-big.png',
+  hero: `${base}images/hero-sailpoint-office.png`,
+  dashboardInterface: `${base}images/dashboard-interface.png`,
+  miroProcess: `${base}images/miro-process.png`,
+  oldDashboard: `${base}images/old-dashboard.png`,
+  dashboardBig: `${base}images/dashboard-big.png`,
+  processBig: `${base}images/process-big.png`,
+  oldDashboardBig: `${base}images/old-dashboard-big.png`,
 }
 
 // ---------------------------------------------------------------------------
@@ -72,7 +73,7 @@ function ImageLightbox({
 function Hero() {
   return (
     <section
-      className="relative flex h-[500px] w-full items-center justify-center overflow-hidden md:h-[600px] lg:h-[800px]"
+      className="relative flex h-[70vh] w-full items-center justify-center overflow-hidden"
       aria-label="Case study hero"
     >
       {/* Background image */}
@@ -87,7 +88,7 @@ function Hero() {
 
       {/* Content */}
       <div className="relative z-10 flex h-full w-full max-w-[1280px] flex-col justify-between px-6 pb-10 pt-16 md:px-12 md:pb-14 md:pt-20 lg:pb-16 lg:pt-32">
-        <h1 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-[72px] lg:leading-[1] lg:tracking-[-1.8px]">
+        <h1 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-[3.813rem] lg:leading-[1] lg:tracking-[-1.8px]">
           What does an administrator actually need to see first thing in the morning?
         </h1>
 
@@ -252,7 +253,10 @@ function SituationText() {
       <SectionLabel>The Situation</SectionLabel>
       <div className="mt-6 flex flex-col gap-6">
         <p className="text-base font-light leading-[26px] text-neutral-700">
-          Every SailPoint administrator started their day on the same screen. For years, that screen told them almost nothing useful.
+          Every morning, the person responsible for securing digital identities across an enterprise — who can access what, across thousands of employees, systems, and applications — opens their dashboard. For companies running SailPoint, one of the world's leading identity security platforms, that first screen sets the tone for the day.
+        </p>
+        <p className="text-base font-light leading-[26px] text-neutral-700">
+          The problem was that the screen they were opening wasn't built for them.
         </p>
         <p className="text-base font-light leading-[26px] text-neutral-700">
           The existing dashboard had been built without user research — it displayed data because data was available, not because anyone had asked what administrators actually needed to know. Customers called it a black box. Valuable insights existed inside the platform. They just couldn't find them, couldn't act on them, and eventually stopped looking.

@@ -4,12 +4,12 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { ChevronDown, Menu, X } from 'lucide-react'
 
 const WHAT_ITEMS = [
-  { label: 'Tekmetric', href: '/tekmetric' },
-  { label: 'SailPoint Workflows', href: '/sailpoint-workflows' },
-  { label: 'SailPoint Dashboard', href: '/sailpoint-dashboard' },
-  { label: 'Uber', href: '/uber' },
-  { label: 'Orange Logic', href: '/orange-logic' },
-  { label: 'Art + Commerce', href: '/art-commerce' },
+  { label: 'Tekmetric', href: '/what/tekmetric' },
+  { label: 'SailPoint Workflows', href: '/what/sailpoint-workflows' },
+  { label: 'SailPoint Dashboard', href: '/what/sailpoint-dashboard' },
+  { label: 'Uber', href: '/what/uber' },
+  { label: 'Orange Logic', href: '/what/orange-logic' },
+  { label: 'Art + Commerce', href: '/what/art-and-commerce' },
 ]
 
 const PRIMARY_LINKS = [
