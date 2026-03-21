@@ -102,13 +102,13 @@ function Hero() {
       />
       <div className="absolute inset-0 bg-black/50" />
 
-      <div className="relative z-10 flex h-full flex-col justify-between pl-10 pr-6 pb-10 pt-16 md:pl-16 md:pr-12 md:pb-14 md:pt-20 lg:pb-16 lg:pt-24">
+      <div className="relative z-10 flex h-full flex-col justify-between pl-8 pr-6 pb-8 pt-14 md:pl-16 md:pr-12 md:pb-14 md:pt-20 lg:pb-16 lg:pt-24">
 
         {/* Upper-left: Thaler quote */}
         <div>
-          <h1 className="relative max-w-[300px] text-[2.1rem] font-bold leading-[1.1] tracking-[-0.04em] text-white md:max-w-[600px] md:text-[2.75rem]">
+          <h1 className="relative max-w-[260px] text-[1.5rem] font-bold leading-[1.15] tracking-[-0.03em] text-white sm:max-w-[340px] sm:text-[1.75rem] md:max-w-[600px] md:text-[2.75rem] md:leading-[1.1] md:tracking-[-0.04em]">
             <span
-              className="absolute -top-16 -left-4 select-none text-[18rem] leading-none text-white/[0.15]"
+              className="absolute -top-10 -left-3 select-none text-[10rem] leading-none text-white/[0.15] md:-top-16 md:-left-4 md:text-[18rem]"
               aria-hidden
             >
               &ldquo;
@@ -117,13 +117,13 @@ function Hero() {
               A choice architect has the responsibility for organizing the context in which people make decisions.
             </em>
           </h1>
-          <p className="mt-4 text-sm font-semibold text-white/60">
+          <p className="mt-3 text-xs font-semibold text-white/60 md:mt-4 md:text-sm">
             — Richard Thaler, <em>Nudge</em>
           </p>
         </div>
 
         {/* Bottom-left: tagline */}
-        <div className="flex flex-col gap-0 text-[2rem] font-bold leading-tight text-white/80">
+        <div className="flex flex-col gap-0 text-[1.5rem] font-bold leading-tight text-white/80 md:text-[2rem]">
           <span>—</span>
           <span>Design Leader.</span>
           <span>Choice Architect.</span>
@@ -202,7 +202,7 @@ function ReviewCarousel() {
 
         {/* Quote + attribution, fades on change */}
         <div
-          className="min-h-[13rem] pl-14 transition-opacity duration-300 md:pl-16"
+          className="min-h-[20rem] pl-14 transition-opacity duration-300 sm:min-h-[16rem] md:min-h-[13rem] md:pl-16"
           style={{ opacity: fading ? 0 : 1 }}
         >
           <div className="mb-5 flex items-center gap-3">
@@ -224,7 +224,7 @@ function ReviewCarousel() {
       </div>
 
       {/* Nav row — always same position, never jumps */}
-      <div className="-mt-7 flex items-center justify-center gap-4">
+      <div className="mt-4 flex items-center justify-center gap-4">
         <button
           onClick={prev}
           aria-label="Previous review"
@@ -295,11 +295,12 @@ export default function Home() {
 
             {/* Bio */}
             <div className="mx-auto mt-16 max-w-2xl border-t border-neutral-200 pt-12">
-              <div className="flex items-center gap-5">
+              {/* Mobile: float portrait left, text wraps around. Desktop: flex row, vertically centered. */}
+              <div className="md:flex md:items-center md:gap-5">
                 <img
                   src={`${base}images/home-portrait.jpg`}
                   alt="Franck Hoffmann"
-                  className="h-44 w-44 flex-shrink-0 rounded-full object-cover object-top"
+                  className="float-left mr-4 mb-1 h-20 w-20 flex-shrink-0 rounded-full object-cover object-top md:float-none md:mr-0 md:mb-0 md:h-44 md:w-44"
                 />
                 <p className="text-base font-light leading-[26px] text-neutral-700">
                   I've spent 20+ years leading product design at B2B and B2B2C SaaS companies where design was treated as a strategic lever. I build high-performing teams, ship products that move business outcomes, and pioneer experiences that earn trust. Currently Director of Product Design at Tekmetric.
