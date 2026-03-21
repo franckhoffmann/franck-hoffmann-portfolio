@@ -9,8 +9,8 @@ import Footer from '@/components/Footer'
 const base = import.meta.env.BASE_URL
 const img = {
   hero: `${base}images/uber-hero.jpg`,
-  blog: `${base}images/uber-blog.png`,
-  latam: `${base}images/uber-latam.png`,
+  blog: `${base}images/uber-blog-optimized.webp`,
+  latam: `${base}images/uber-latam-optimized.webp`,
 }
 
 // ---------------------------------------------------------------------------

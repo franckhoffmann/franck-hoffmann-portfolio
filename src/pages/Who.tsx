@@ -5,7 +5,7 @@ const base = import.meta.env.BASE_URL
 const img = {
   hero: `${base}images/hero-who.jpg`,
   frankPortrait: `${base}images/hero-who.jpg`,
-  moose: `${base}images/portrait-franck.png`,
+  moose: `${base}images/portrait-franck-optimized.webp`,
 }
 
 // ---------------------------------------------------------------------------

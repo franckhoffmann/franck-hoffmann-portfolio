@@ -8,11 +8,11 @@ import Footer from '@/components/Footer'
 // Image paths — assets live in public/images/ and are served from the base URL
 const base = import.meta.env.BASE_URL
 const img = {
-  hero: `${base}images/workflows-hero.png`,
-  interface: `${base}images/workflows-interface.png`,
-  operatorSetup: `${base}images/workflows-operator-setup.gif`,
-  operatorFields: `${base}images/workflows-operator-fields.gif`,
-  actions: `${base}images/workflows-actions.gif`,
+  hero: `${base}images/workflows-hero-optimized.webp`,
+  interface: `${base}images/workflows-interface-optimized.webp`,
+  operatorSetup: `${base}images/workflows-operator-setup-optimized.mp4`,
+  operatorFields: `${base}images/workflows-operator-fields-optimized.mp4`,
+  actions: `${base}images/workflows-actions-optimized.mp4`,
 }
 
 // ---------------------------------------------------------------------------
@@ -159,6 +159,20 @@ function CaseImage({
   )
 }
 
+function CaseVideo({ src, alt }: { src: string; alt: string }) {
+  return (
+    <video
+      src={src}
+      autoPlay
+      loop
+      muted
+      playsInline
+      aria-label={alt}
+      className="h-auto w-full object-contain"
+    />
+  )
+}
+
 // ---------------------------------------------------------------------------
 // Main body — images left, text right (desktop) / stacked (mobile)
 // ---------------------------------------------------------------------------
@@ -186,26 +200,14 @@ function CaseStudyBody({
 
           {/* The Call */}
           <div className="flex flex-col gap-8">
-            <CaseImage
-              src={img.operatorSetup}
-              alt="Operator setup workflow demonstration"
-              onClick={() => openLightbox(img.operatorSetup, 'Operator setup — full view')}
-            />
-            <CaseImage
-              src={img.operatorFields}
-              alt="Operator fields workflow demonstration"
-              onClick={() => openLightbox(img.operatorFields, 'Operator fields — full view')}
-            />
+            <CaseVideo src={img.operatorSetup} alt="Operator setup workflow demonstration" />
+            <CaseVideo src={img.operatorFields} alt="Operator fields workflow demonstration" />
             <TheCallText />
           </div>
 
           {/* The Outcome */}
           <div className="flex flex-col gap-8">
-            <CaseImage
-              src={img.actions}
-              alt="Workflow actions demonstration"
-              onClick={() => openLightbox(img.actions, 'Workflow actions — full view')}
-            />
+            <CaseVideo src={img.actions} alt="Workflow actions demonstration" />
             <TheOutcomeText />
           </div>
         </div>
@@ -219,21 +221,9 @@ function CaseStudyBody({
               alt="SailPoint Workflows interface"
               onClick={() => openLightbox(img.interface, 'SailPoint Workflows interface — full view')}
             />
-            <CaseImage
-              src={img.operatorSetup}
-              alt="Operator setup workflow demonstration"
-              onClick={() => openLightbox(img.operatorSetup, 'Operator setup — full view')}
-            />
-            <CaseImage
-              src={img.operatorFields}
-              alt="Operator fields workflow demonstration"
-              onClick={() => openLightbox(img.operatorFields, 'Operator fields — full view')}
-            />
-            <CaseImage
-              src={img.actions}
-              alt="Workflow actions demonstration"
-              onClick={() => openLightbox(img.actions, 'Workflow actions — full view')}
-            />
+            <CaseVideo src={img.operatorSetup} alt="Operator setup workflow demonstration" />
+            <CaseVideo src={img.operatorFields} alt="Operator fields workflow demonstration" />
+            <CaseVideo src={img.actions} alt="Workflow actions demonstration" />
           </div>
 
           {/* Right: all text sections stacked */}

@@ -9,12 +9,12 @@ import Footer from '@/components/Footer'
 const base = import.meta.env.BASE_URL
 const img = {
   hero: `${base}images/tekmetric-hero.jpg`,
-  plg: `${base}images/tekmetric-plg.png`,
-  dashboard: `${base}images/tekmetric-tms-dashboard.png`,
+  plg: `${base}images/tekmetric-plg-optimized.webp`,
+  dashboard: `${base}images/tekmetric-tms-dashboard-optimized.webp`,
   booking: `${base}images/tekmetric-booking-tool.jpg`,
-  campaigns: `${base}images/tekmetric-customer-campaigns.png`,
-  filters: `${base}images/tekmetric-filters.png`,
-  googleReviews: `${base}images/tekmetric-google-reviews.png`,
+  campaigns: `${base}images/tekmetric-customer-campaigns-optimized.webp`,
+  filters: `${base}images/tekmetric-filters-optimized.webp`,
+  googleReviews: `${base}images/tekmetric-google-reviews-optimized.webp`,
 }
 
 // ---------------------------------------------------------------------------

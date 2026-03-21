@@ -8,13 +8,13 @@ import Footer from '@/components/Footer'
 // Image paths — assets live in public/images/ and are served from the base URL
 const base = import.meta.env.BASE_URL
 const img = {
-  hero: `${base}images/hero-sailpoint-office.png`,
-  dashboardInterface: `${base}images/dashboard-interface.png`,
+  hero: `${base}images/hero-sailpoint-office-optimized.webp`,
+  dashboardInterface: `${base}images/dashboard-interface-optimized.webp`,
   miroProcess: `${base}images/miro-process.png`,
   oldDashboard: `${base}images/old-dashboard.png`,
-  dashboardBig: `${base}images/dashboard-big.png`,
+  dashboardBig: `${base}images/dashboard-big-optimized.webp`,
   processBig: `${base}images/process-big.png`,
-  oldDashboardBig: `${base}images/old-dashboard-big.png`,
+  oldDashboardBig: `${base}images/old-dashboard-big-optimized.webp`,
 }
 
 // ---------------------------------------------------------------------------

@@ -8,7 +8,7 @@ import Footer from '@/components/Footer'
 // Image paths — assets live in public/images/ and are served from the base URL
 const base = import.meta.env.BASE_URL
 const img = {
-  hero: `${base}images/art-commerce-hero.png`,
+  hero: `${base}images/art-commerce-hero-optimized.webp`,
   img018: `${base}images/art-commerce-018.jpg`,
   img001: `${base}images/art-commerce-001.jpg`,
   img008: `${base}images/art-commerce-008.jpg`,

@@ -8,7 +8,7 @@ import Footer from '@/components/Footer'
 // Image paths — assets live in public/images/ and are served from the base URL
 const base = import.meta.env.BASE_URL
 const img = {
-  hero: `${base}images/orange-logic-hero.png`,
+  hero: `${base}images/orange-logic-hero-optimized.webp`,
   screenshot1: `${base}images/orange-logic-screenshot-1.jpg`,
   screenshot2: `${base}images/orange-logic-screenshot-2.jpg`,
   screenshot3: `${base}images/orange-logic-screenshot-3.jpg`,
