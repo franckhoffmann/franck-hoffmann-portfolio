@@ -145,6 +145,7 @@ function ReviewCarousel() {
   const [fading, setFading] = useState(false)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const pausedRef = useRef(false)
+  const touchStartX = useRef<number | null>(null)
 
   const goTo = useCallback((idx: number) => {
     if (fading) return
@@ -182,13 +183,44 @@ function ReviewCarousel() {
     return () => window.removeEventListener('keydown', handleKey)
   }, [prev, next])
 
+  // Touch swipe handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+    pausedRef.current = true
+  }
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const delta = touchStartX.current - e.changedTouches[0].clientX
+    if (Math.abs(delta) > 50) {
+      delta > 0 ? next() : prev()
+    }
+    touchStartX.current = null
+    pausedRef.current = false
+  }
+
   const review = REVIEWS[visible]
 
   return (
     <div
       onMouseEnter={() => { pausedRef.current = true }}
       onMouseLeave={() => { pausedRef.current = false }}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
+      {/* Dots — above everything, stable (not inside fade zone) */}
+      <div className="mb-6 flex justify-center gap-2">
+        {REVIEWS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            aria-label={`Go to review ${i + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              i === current ? 'w-6 bg-neutral-700' : 'w-1.5 bg-neutral-300 hover:bg-neutral-400'
+            }`}
+          />
+        ))}
+      </div>
+
       {/* Quote area — fixed min-height keeps nav row stable */}
       <div className="relative mx-auto max-w-3xl">
 
@@ -223,8 +255,8 @@ function ReviewCarousel() {
         </div>
       </div>
 
-      {/* Nav row — always same position, never jumps */}
-      <div className="mt-4 flex items-center justify-center gap-4">
+      {/* Prev/Next buttons — desktop only, mobile uses swipe */}
+      <div className="mt-4 hidden items-center justify-center gap-4 md:flex">
         <button
           onClick={prev}
           aria-label="Previous review"
@@ -234,20 +266,6 @@ function ReviewCarousel() {
             <polyline points="10 4 6 8 10 12" />
           </svg>
         </button>
-
-        <div className="flex gap-2">
-          {REVIEWS.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              aria-label={`Go to review ${i + 1}`}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                i === current ? 'w-6 bg-neutral-700' : 'w-1.5 bg-neutral-300 hover:bg-neutral-400'
-              }`}
-            />
-          ))}
-        </div>
-
         <button
           onClick={next}
           aria-label="Next review"
