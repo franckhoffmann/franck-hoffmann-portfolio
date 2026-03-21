@@ -142,35 +142,59 @@ function Hero() {
 const SLIDE_PX = 420
 
 function ReviewCarousel() {
-  const [current, setCurrent] = useState(0)   // active dot + next index
-  const [displayIdx, setDisplayIdx] = useState(0) // what's actually rendered
-  const [x, setX] = useState(0)               // current translateX
-  const [animated, setAnimated] = useState(false) // whether CSS transition is on
+  const [current, setCurrent] = useState(0)
+  const [displayIdx, setDisplayIdx] = useState(0)
+  // Slide state (mobile)
+  const [x, setX] = useState(0)
+  const [animated, setAnimated] = useState(false)
+  // Fade state (desktop)
+  const [fading, setFading] = useState(false)
 
   const isAnimatingRef = useRef(false)
   const pausedRef = useRef(false)
+  const isMobileRef = useRef(false)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const touchStartX = useRef<number | null>(null)
   const isDraggingRef = useRef(false)
 
-  // Two-phase slide: out → switch content → in
+  // Track mobile breakpoint
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)')
+    isMobileRef.current = mq.matches
+    const handler = (e: MediaQueryListEvent) => { isMobileRef.current = e.matches }
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
+  // Desktop: fade transition
+  const fadeTo = useCallback((nextIdx: number) => {
+    if (isAnimatingRef.current) return
+    isAnimatingRef.current = true
+    pausedRef.current = true
+    setCurrent(nextIdx)
+    setFading(true)
+    setTimeout(() => {
+      setDisplayIdx(nextIdx)
+      setFading(false)
+      isAnimatingRef.current = false
+      pausedRef.current = false
+    }, 300)
+  }, [])
+
+  // Mobile: two-phase slide out → switch → slide in
   const slideTo = useCallback((nextIdx: number, dir: 'left' | 'right') => {
     if (isAnimatingRef.current) return
     isAnimatingRef.current = true
     pausedRef.current = true
     setCurrent(nextIdx)
 
-    // Phase 1: slide current content off screen
     setAnimated(true)
     setX(dir === 'left' ? -SLIDE_PX : SLIDE_PX)
 
     setTimeout(() => {
-      // Switch content instantly, position new content on the opposite side
       setDisplayIdx(nextIdx)
       setAnimated(false)
       setX(dir === 'left' ? SLIDE_PX : -SLIDE_PX)
-
-      // Phase 2: slide new content to center
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setAnimated(true)
@@ -185,12 +209,14 @@ function ReviewCarousel() {
   }, [])
 
   const next = useCallback(() => {
-    slideTo((current + 1) % REVIEWS.length, 'left')
-  }, [current, slideTo])
+    const nextIdx = (current + 1) % REVIEWS.length
+    isMobileRef.current ? slideTo(nextIdx, 'left') : fadeTo(nextIdx)
+  }, [current, slideTo, fadeTo])
 
   const prev = useCallback(() => {
-    slideTo((current - 1 + REVIEWS.length) % REVIEWS.length, 'right')
-  }, [current, slideTo])
+    const nextIdx = (current - 1 + REVIEWS.length) % REVIEWS.length
+    isMobileRef.current ? slideTo(nextIdx, 'right') : fadeTo(nextIdx)
+  }, [current, slideTo, fadeTo])
 
   // Auto-advance
   useEffect(() => {
@@ -279,7 +305,10 @@ function ReviewCarousel() {
         {REVIEWS.map((_, i) => (
           <button
             key={i}
-            onClick={() => slideTo(i, i > current ? 'left' : 'right')}
+            onClick={() => isMobileRef.current
+              ? slideTo(i, i > current ? 'left' : 'right')
+              : fadeTo(i)
+            }
             aria-label={`Go to review ${i + 1}`}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               i === current ? 'w-6 bg-neutral-700' : 'w-1.5 bg-neutral-300 hover:bg-neutral-400'
@@ -288,7 +317,7 @@ function ReviewCarousel() {
         ))}
       </div>
 
-      {/* Sliding content area — overflow hidden clips the slide */}
+      {/* Content area — overflow:hidden clips mobile slide; opacity drives desktop fade */}
       <div
         className="overflow-hidden"
         onTouchStart={handleTouchStart}
@@ -299,7 +328,10 @@ function ReviewCarousel() {
           className="relative mx-auto max-w-3xl"
           style={{
             transform: `translateX(${x}px)`,
-            transition: animated ? 'transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none',
+            transition: animated
+              ? 'transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+              : 'none',
+            opacity: fading ? 0 : 1,
           }}
         >
           {/* Decorative " */}

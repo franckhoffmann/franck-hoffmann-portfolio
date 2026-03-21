@@ -117,7 +117,7 @@ function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
               key={link.href}
               to={link.href}
               onClick={onClose}
-              className="block py-2 text-sm text-neutral-500 hover:text-black"
+              className="block py-2 text-sm font-medium text-neutral-700 hover:text-black"
             >
               {link.label}
             </Link>
@@ -126,7 +126,7 @@ function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
             href={`${base}documents/Franck_Hoffmann_Resume.pdf`}
             download
             onClick={onClose}
-            className="block py-2 text-sm text-neutral-500 hover:text-black"
+            className="block py-2 text-sm font-medium text-neutral-700 hover:text-black"
           >
             Resume
           </a>
