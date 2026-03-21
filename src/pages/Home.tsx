@@ -166,19 +166,21 @@ function ReviewCarousel() {
     return () => mq.removeEventListener('change', handler)
   }, [])
 
-  // Desktop: fade transition
+  // Desktop: fade + scale transition
   const fadeTo = useCallback((nextIdx: number) => {
     if (isAnimatingRef.current) return
     isAnimatingRef.current = true
     pausedRef.current = true
     setCurrent(nextIdx)
     setFading(true)
-    setTimeout(() => {
+    setTimeout(() => {         // wait for fade-out (220ms)
       setDisplayIdx(nextIdx)
       setFading(false)
-      isAnimatingRef.current = false
-      pausedRef.current = false
-    }, 300)
+      setTimeout(() => {       // wait for fade-in (220ms)
+        isAnimatingRef.current = false
+        pausedRef.current = false
+      }, 230)
+    }, 220)
   }, [])
 
   // Mobile: two-phase slide out → switch → slide in
@@ -326,12 +328,18 @@ function ReviewCarousel() {
       >
         <div
           className="relative mx-auto max-w-3xl"
-          style={{
+          style={isMobileRef.current ? {
+            // Mobile: physical slide, no fade
             transform: `translateX(${x}px)`,
             transition: animated
               ? 'transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94)'
               : 'none',
+            opacity: 1,
+          } : {
+            // Desktop: fade + subtle scale, no translate
             opacity: fading ? 0 : 1,
+            transform: fading ? 'scale(0.97)' : 'scale(1)',
+            transition: 'opacity 220ms ease, transform 220ms ease',
           }}
         >
           {/* Decorative " */}
