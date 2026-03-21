@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { ChevronDown, Menu, X } from 'lucide-react'
 
+const base = import.meta.env.BASE_URL
+
 const WHAT_ITEMS = [
   { label: 'Tekmetric', href: '/what/tekmetric' },
   { label: 'SailPoint Workflows', href: '/what/sailpoint-workflows' },
@@ -19,10 +21,9 @@ const PRIMARY_LINKS = [
   { label: 'Why', href: '/why' },
 ]
 
-const SECONDARY_LINKS = [
+const SECONDARY_LINKS: { label: string; href: string; download?: boolean }[] = [
   { label: 'Leadership', href: '/leadership' },
   { label: 'Endorsements', href: '/endorsements' },
-  { label: 'Resume', href: '/resume' },
 ]
 
 function WhatDropdown() {
@@ -121,6 +122,14 @@ function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
               {link.label}
             </Link>
           ))}
+          <a
+            href={`${base}documents/Franck_Hoffmann_Resume.pdf`}
+            download
+            onClick={onClose}
+            className="block py-2 text-sm text-neutral-500 hover:text-black"
+          >
+            Resume
+          </a>
         </div>
       </nav>
     </div>
@@ -139,9 +148,17 @@ export default function Nav() {
           to="/"
           className="shrink-0 text-sm font-semibold text-black hover:opacity-80"
         >
-          Franck Hoffmann{' '}
-          <span className="hidden font-normal text-neutral-400 sm:inline">
-            — Product Design Leader
+          {/* Below 768px (mobile): show full tagline */}
+          <span className="md:hidden">
+            Franck Hoffmann{' '}
+            <span className="font-normal text-neutral-400">— Product Design Leader</span>
+          </span>
+          {/* 768px–960px: name only */}
+          <span className="hidden md:inline min-[1054px]:hidden">Franck Hoffmann</span>
+          {/* Above 960px: name + tagline */}
+          <span className="hidden min-[1054px]:inline">
+            Franck Hoffmann{' '}
+            <span className="font-normal text-neutral-400">— Product Design Leader</span>
           </span>
         </Link>
 
@@ -178,12 +195,20 @@ export default function Nav() {
               key={link.href}
               to={link.href}
               className={`text-sm transition-colors hover:text-black ${
-                location.pathname === link.href ? 'text-black font-medium' : 'text-neutral-400'
+                location.pathname === link.href ? 'text-black font-medium' : 'text-neutral-600'
               }`}
             >
               {link.label}
             </Link>
           ))}
+
+          <a
+            href={`${base}documents/Franck_Hoffmann_Resume.pdf`}
+            download
+            className="text-sm text-neutral-600 transition-colors hover:text-black"
+          >
+            Resume
+          </a>
         </nav>
 
         {/* Mobile hamburger */}

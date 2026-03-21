@@ -10,6 +10,11 @@ import SailPointWorkflows from '@/pages/SailPointWorkflows'
 import Uber from '@/pages/Uber'
 import OrangeLogic from '@/pages/OrangeLogic'
 import ArtAndCommerce from '@/pages/ArtAndCommerce'
+import Who from '@/pages/Who'
+import How from '@/pages/How'
+import Leadership from '@/pages/Leadership'
+import Why from '@/pages/Why'
+import Endorsements from '@/pages/Endorsements'
 import ComingSoon from '@/pages/ComingSoon'
 
 function ScrollToTop() {
@@ -31,18 +36,18 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<Home />} />
         {/* Placeholder routes */}
-        <Route path="/who" element={<ComingSoon title="Who" />} />
-        <Route path="/how" element={<ComingSoon title="How" />} />
-        <Route path="/why" element={<ComingSoon title="Why" />} />
+        <Route path="/who" element={<Who />} />
+        <Route path="/how" element={<How />} />
+        <Route path="/why" element={<Why />} />
         <Route path="/what/sailpoint-dashboard" element={<SailPointDashboard />} />
         <Route path="/what/tekmetric" element={<Tekmetric />} />
         <Route path="/what/sailpoint-workflows" element={<SailPointWorkflows />} />
         <Route path="/what/uber" element={<Uber />} />
         <Route path="/what/orange-logic" element={<OrangeLogic />} />
         <Route path="/what/art-and-commerce" element={<ArtAndCommerce />} />
-        <Route path="/leadership" element={<ComingSoon title="Leadership" />} />
-        <Route path="/endorsements" element={<ComingSoon title="Endorsements" />} />
-        <Route path="/resume" element={<ComingSoon title="Resume" />} />
+        <Route path="/leadership" element={<Leadership />} />
+        <Route path="/endorsements" element={<Endorsements />} />
+        {/* /resume removed — nav link downloads PDF directly */}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
