@@ -139,31 +139,58 @@ function Hero() {
 // Carousel
 // ---------------------------------------------------------------------------
 
-function ReviewCarousel() {
-  const [current, setCurrent] = useState(0)
-  const [visible, setVisible] = useState(0)
-  const [fading, setFading] = useState(false)
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
-  const pausedRef = useRef(false)
-  const touchStartX = useRef<number | null>(null)
+const SLIDE_PX = 420
 
-  const goTo = useCallback((idx: number) => {
-    if (fading) return
-    setFading(true)
+function ReviewCarousel() {
+  const [current, setCurrent] = useState(0)   // active dot + next index
+  const [displayIdx, setDisplayIdx] = useState(0) // what's actually rendered
+  const [x, setX] = useState(0)               // current translateX
+  const [animated, setAnimated] = useState(false) // whether CSS transition is on
+
+  const isAnimatingRef = useRef(false)
+  const pausedRef = useRef(false)
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const touchStartX = useRef<number | null>(null)
+  const isDraggingRef = useRef(false)
+
+  // Two-phase slide: out → switch content → in
+  const slideTo = useCallback((nextIdx: number, dir: 'left' | 'right') => {
+    if (isAnimatingRef.current) return
+    isAnimatingRef.current = true
+    pausedRef.current = true
+    setCurrent(nextIdx)
+
+    // Phase 1: slide current content off screen
+    setAnimated(true)
+    setX(dir === 'left' ? -SLIDE_PX : SLIDE_PX)
+
     setTimeout(() => {
-      setCurrent(idx)
-      setVisible(idx)
-      setFading(false)
-    }, 300)
-  }, [fading])
+      // Switch content instantly, position new content on the opposite side
+      setDisplayIdx(nextIdx)
+      setAnimated(false)
+      setX(dir === 'left' ? SLIDE_PX : -SLIDE_PX)
+
+      // Phase 2: slide new content to center
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setAnimated(true)
+          setX(0)
+          setTimeout(() => {
+            isAnimatingRef.current = false
+            pausedRef.current = false
+          }, 320)
+        })
+      })
+    }, 280)
+  }, [])
 
   const next = useCallback(() => {
-    goTo((current + 1) % REVIEWS.length)
-  }, [current, goTo])
+    slideTo((current + 1) % REVIEWS.length, 'left')
+  }, [current, slideTo])
 
   const prev = useCallback(() => {
-    goTo((current - 1 + REVIEWS.length) % REVIEWS.length)
-  }, [current, goTo])
+    slideTo((current - 1 + REVIEWS.length) % REVIEWS.length, 'right')
+  }, [current, slideTo])
 
   // Auto-advance
   useEffect(() => {
@@ -183,36 +210,76 @@ function ReviewCarousel() {
     return () => window.removeEventListener('keydown', handleKey)
   }, [prev, next])
 
-  // Touch swipe handlers
+  // Touch: finger follows in real time
   const handleTouchStart = (e: React.TouchEvent) => {
+    if (isAnimatingRef.current) return
     touchStartX.current = e.touches[0].clientX
+    isDraggingRef.current = true
     pausedRef.current = true
-  }
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null) return
-    const delta = touchStartX.current - e.changedTouches[0].clientX
-    if (Math.abs(delta) > 50) {
-      delta > 0 ? next() : prev()
-    }
-    touchStartX.current = null
-    pausedRef.current = false
+    setAnimated(false) // no transition while dragging
   }
 
-  const review = REVIEWS[visible]
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDraggingRef.current || touchStartX.current === null) return
+    const delta = e.touches[0].clientX - touchStartX.current
+    setX(delta * 0.88) // slight resistance
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!isDraggingRef.current || touchStartX.current === null) return
+    isDraggingRef.current = false
+    const delta = e.changedTouches[0].clientX - touchStartX.current
+    touchStartX.current = null
+
+    if (Math.abs(delta) > 55) {
+      const dir = delta < 0 ? 'left' : 'right'
+      const nextIdx = dir === 'left'
+        ? (current + 1) % REVIEWS.length
+        : (current - 1 + REVIEWS.length) % REVIEWS.length
+
+      isAnimatingRef.current = true
+      setCurrent(nextIdx)
+
+      // Complete the slide out from wherever the finger left it
+      setAnimated(true)
+      setX(dir === 'left' ? -SLIDE_PX : SLIDE_PX)
+
+      setTimeout(() => {
+        setDisplayIdx(nextIdx)
+        setAnimated(false)
+        setX(dir === 'left' ? SLIDE_PX : -SLIDE_PX)
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setAnimated(true)
+            setX(0)
+            setTimeout(() => {
+              isAnimatingRef.current = false
+              pausedRef.current = false
+            }, 320)
+          })
+        })
+      }, 280)
+    } else {
+      // Snap back to center
+      setAnimated(true)
+      setX(0)
+      setTimeout(() => { pausedRef.current = false }, 300)
+    }
+  }
+
+  const review = REVIEWS[displayIdx]
 
   return (
     <div
       onMouseEnter={() => { pausedRef.current = true }}
       onMouseLeave={() => { pausedRef.current = false }}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
     >
-      {/* Dots — above everything, stable (not inside fade zone) */}
+      {/* Dots — above everything, outside the slide zone */}
       <div className="mb-6 flex justify-center gap-2">
         {REVIEWS.map((_, i) => (
           <button
             key={i}
-            onClick={() => goTo(i)}
+            onClick={() => slideTo(i, i > current ? 'left' : 'right')}
             aria-label={`Go to review ${i + 1}`}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               i === current ? 'w-6 bg-neutral-700' : 'w-1.5 bg-neutral-300 hover:bg-neutral-400'
@@ -221,41 +288,49 @@ function ReviewCarousel() {
         ))}
       </div>
 
-      {/* Quote area — fixed min-height keeps nav row stable */}
-      <div className="relative mx-auto max-w-3xl">
-
-        {/* Decorative " — left-aligned, absolute so it takes no vertical space */}
-        <span
-          className="absolute -top-2 left-0 select-none font-serif text-[5rem] leading-none text-neutral-200"
-          aria-hidden
-        >
-          &ldquo;
-        </span>
-
-        {/* Quote + attribution, fades on change */}
+      {/* Sliding content area — overflow hidden clips the slide */}
+      <div
+        className="overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div
-          className="min-h-[20rem] pl-14 transition-opacity duration-300 sm:min-h-[16rem] md:min-h-[13rem] md:pl-16"
-          style={{ opacity: fading ? 0 : 1 }}
+          className="relative mx-auto max-w-3xl"
+          style={{
+            transform: `translateX(${x}px)`,
+            transition: animated ? 'transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none',
+          }}
         >
-          <div className="mb-5 flex items-center gap-3">
-            <img
-              src={review.avatar}
-              alt={review.name}
-              className="h-10 w-10 rounded-full object-cover"
-            />
-            <div>
-              <div className="text-sm font-semibold text-neutral-900">{review.name}</div>
-              <div className="text-xs text-neutral-400">{review.title}</div>
-            </div>
-          </div>
+          {/* Decorative " */}
+          <span
+            className="absolute -top-2 left-0 select-none font-serif text-[5rem] leading-none text-neutral-200"
+            aria-hidden
+          >
+            &ldquo;
+          </span>
 
-          <blockquote className="text-lg font-light leading-relaxed text-neutral-800 md:text-xl md:leading-relaxed">
-            {review.quote}
-          </blockquote>
+          {/* Attribution + quote */}
+          <div className="min-h-[20rem] pl-14 sm:min-h-[16rem] md:min-h-[13rem] md:pl-16">
+            <div className="mb-5 flex items-center gap-3">
+              <img
+                src={review.avatar}
+                alt={review.name}
+                className="h-10 w-10 rounded-full object-cover"
+              />
+              <div>
+                <div className="text-sm font-semibold text-neutral-900">{review.name}</div>
+                <div className="text-xs text-neutral-400">{review.title}</div>
+              </div>
+            </div>
+            <blockquote className="text-lg font-light leading-relaxed text-neutral-800 md:text-xl md:leading-relaxed">
+              {review.quote}
+            </blockquote>
+          </div>
         </div>
       </div>
 
-      {/* Prev/Next buttons — desktop only, mobile uses swipe */}
+      {/* Prev/Next buttons — desktop only */}
       <div className="mt-4 hidden items-center justify-center gap-4 md:flex">
         <button
           onClick={prev}
