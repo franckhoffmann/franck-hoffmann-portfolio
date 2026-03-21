@@ -39,7 +39,7 @@ jobs:
         # VITE_BASE_PATH must end with a trailing slash and match your repo name.
         # Example: if your repo is github.com/yourname/franck-hoffmann-portfolio
         # set it to /franck-hoffmann-portfolio/
-        run: VITE_BASE_PATH=/${{ github.event.repository.name }}/ npm run build
+        run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
