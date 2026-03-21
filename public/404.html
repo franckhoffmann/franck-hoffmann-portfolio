@@ -13,10 +13,10 @@
       // path as a query param and do a hard redirect to the repo root so that
       // index.html (and React Router) can decode it and render the right page.
       //
-      // segmentCount = 1 because the site lives one segment deep:
-      //   franckhoffmann.github.io / franck-hoffmann-portfolio / <route>
-      //                              └── segment 1 ────────────┘
-      var segmentCount = 1;
+      // segmentCount = 0 because the site is served at the domain root
+      // (custom domain franckhoffmann.com, base path = /).
+      // Use 1 only if the site lives under a subdirectory (e.g. username.github.io/repo-name/).
+      var segmentCount = 0;
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
