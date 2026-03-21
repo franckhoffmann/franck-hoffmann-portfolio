@@ -37,13 +37,13 @@ function Hero() {
       />
       <div className="absolute inset-0 bg-black/50" />
 
-      <div className="relative z-10 flex h-full flex-col justify-between pl-10 pr-6 pb-10 pt-16 md:pl-16 md:pr-12 md:pb-14 md:pt-20 lg:pb-16 lg:pt-24">
+      <div className="relative z-10 flex h-full flex-col justify-between pl-8 pr-6 pb-8 pt-14 md:pl-16 md:pr-12 md:pb-14 md:pt-20 lg:pb-16 lg:pt-24">
 
         {/* Upper-left: Franck's process philosophy quote */}
         <div>
-          <h1 className="relative max-w-[300px] text-[2.1rem] font-bold leading-[1.1] tracking-[-0.04em] text-white md:max-w-[480px] md:text-[2.75rem]">
+          <h1 className="relative max-w-[260px] text-[1.5rem] font-bold leading-[1.15] tracking-[-0.03em] text-white sm:text-[1.75rem] md:text-[2.75rem] md:leading-[1.1] md:tracking-[-0.04em] md:max-w-[480px]">
             <span
-              className="absolute -top-16 -left-4 select-none text-[18rem] leading-none text-white/[0.15]"
+              className="absolute -top-10 -left-3 select-none text-[10rem] leading-none text-white/[0.15] md:-top-16 md:-left-4 md:text-[18rem]"
               aria-hidden
             >
               &ldquo;
@@ -55,7 +55,7 @@ function Hero() {
         </div>
 
         {/* Bottom-left: tagline */}
-        <div className="flex flex-col gap-0 text-[2rem] font-bold leading-tight text-white/80">
+        <div className="flex flex-col gap-0 text-[1.5rem] font-bold leading-tight text-white/80 md:text-[2rem]">
           <span>—</span>
           <span>People.</span>
           <span>Priorities.</span>
