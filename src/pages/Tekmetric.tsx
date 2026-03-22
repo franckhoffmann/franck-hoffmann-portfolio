@@ -281,7 +281,7 @@ function SituationText() {
           Tekmetric made the strategic decision to build that product from scratch rather than integrate an acquired solution. The new Marketing Suite had to launch on a fixed date. A cross-selling motion was already lined up, and the business was counting on it.
         </p>
         <p className="text-base leading-[26px] text-neutral-900">
-          My role wasn't to design the product. It was to make sure it shipped well.
+          As the Director of Product Design, my role was to create the conditions for the team to ship something worth shipping.
         </p>
       </div>
     </section>
@@ -294,10 +294,10 @@ function TheProductText() {
       <SectionLabel>The Product</SectionLabel>
       <div className="mt-6 flex flex-col gap-6">
         <p className="text-base font-light leading-[26px] text-neutral-700">
-          The Marketing Suite gives auto repair shop owners everything they need to fill bays, bring customers back, and build their reputation without needing a marketing background.
+          For a shop owner, running marketing used to mean juggling three or four separate tools — one for booking, one for reviews, one for campaigns, each with its own login and its own learning curve. The Marketing Suite collapsed all of that into a single place: the platform they were already in every day.
         </p>
         <p className="text-base font-light leading-[26px] text-neutral-700">
-          Online booking lets customers schedule appointments 24/7 directly from the shop's website. Automated campaigns target the right customers at the right time using data that already exists in the platform: high-value customers, service-due reminders, inactive customer win-backs. Review management surfaces Google reviews and makes it easy to respond. All of it in one place, inside the tool shop owners already use every day.
+          Customers can book appointments 24/7 directly from the shop's website. Campaigns reach the right customers automatically. Google reviews surface in one place and can be responded to without switching tabs. It sounds simple. That's the point.
         </p>
       </div>
     </section>
@@ -332,10 +332,10 @@ function TheOutcomeText() {
           The Marketing Suite launched on time. The cross-selling motion worked.
         </p>
         <p className="text-base font-light leading-[26px] text-neutral-700">
-          In under six months since launch: 1,199 locations sold and $4.7M ARR added. Across all shops, $609K in posted repair order revenue is directly attributable to Marketing Suite campaigns and automations. Year to date, 201K unique customers have viewed the online booking widget, up 172% from the previous three months.
+          In under six months: $4.7M ARR added. Across all shops, $609K in posted repair order revenue is directly attributable to Marketing Suite campaigns and automations. Year to date, 201K unique customers have viewed the online booking widget, up 172% from the previous three months.
         </p>
         <p className="text-base font-light leading-[26px] text-neutral-700">
-          The adoption curve tells its own story. Roughly two thirds of shops are actively using the online booking services dropdown every month. A new campaign template launched on February 26th had already been sent by 47 shops within days, generating $9,110 in revenue from 10 of them. Some shops sent their first campaign within 24 hours of joining the platform.
+          The adoption curve tells its own story. Roughly two thirds of shops are actively using the online booking services every month. Some shops sent their first campaign within 24 hours of joining the platform.
         </p>
         <SideQuote>
           "From an operational standpoint, having everything on one platform streamlines my workflow and allows me to spend more time with my customers." — Kellyn, Karr Automotive
