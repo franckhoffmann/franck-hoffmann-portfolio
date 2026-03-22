@@ -44,11 +44,23 @@ function ImageLightbox({
             className="relative max-h-[90vh] overflow-y-auto rounded-lg"
             style={{ width: 'min(2500px, calc(100vw - 64px))' }}
           >
-            <img
-              src={imageSrc}
-              alt={imageAlt}
-              className="block h-auto w-full rounded-lg"
-            />
+            {imageSrc.endsWith('.mp4') ? (
+              <video
+                src={imageSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-label={imageAlt}
+                className="block h-auto w-full rounded-lg"
+              />
+            ) : (
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                className="block h-auto w-full rounded-lg"
+              />
+            )}
             <Dialog.Close asChild>
               <button
                 className="absolute right-4 top-4 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white"
@@ -159,17 +171,23 @@ function CaseImage({
   )
 }
 
-function CaseVideo({ src, alt }: { src: string; alt: string }) {
+function CaseVideo({ src, alt, onClick }: { src: string; alt: string; onClick: () => void }) {
   return (
-    <video
-      src={src}
-      autoPlay
-      loop
-      muted
-      playsInline
-      aria-label={alt}
-      className="h-auto w-full object-contain"
-    />
+    <button
+      onClick={onClick}
+      className="group w-full cursor-zoom-in text-left focus:outline-none"
+      aria-label={`Enlarge: ${alt}`}
+    >
+      <video
+        src={src}
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-label={alt}
+        className="h-auto w-full object-contain transition-opacity group-hover:opacity-90"
+      />
+    </button>
   )
 }
 
@@ -200,14 +218,14 @@ function CaseStudyBody({
 
           {/* The Call */}
           <div className="flex flex-col gap-8">
-            <CaseVideo src={img.operatorSetup} alt="Operator setup workflow demonstration" />
-            <CaseVideo src={img.operatorFields} alt="Operator fields workflow demonstration" />
+            <CaseVideo src={img.operatorSetup} alt="Operator setup workflow demonstration" onClick={() => openLightbox(img.operatorSetup, 'Operator setup workflow demonstration')} />
+            <CaseVideo src={img.operatorFields} alt="Operator fields workflow demonstration" onClick={() => openLightbox(img.operatorFields, 'Operator fields workflow demonstration')} />
             <TheCallText />
           </div>
 
           {/* The Outcome */}
           <div className="flex flex-col gap-8">
-            <CaseVideo src={img.actions} alt="Workflow actions demonstration" />
+            <CaseVideo src={img.actions} alt="Workflow actions demonstration" onClick={() => openLightbox(img.actions, 'Workflow actions demonstration')} />
             <TheOutcomeText />
           </div>
         </div>
@@ -221,9 +239,9 @@ function CaseStudyBody({
               alt="SailPoint Workflows interface"
               onClick={() => openLightbox(img.interface, 'SailPoint Workflows interface — full view')}
             />
-            <CaseVideo src={img.operatorSetup} alt="Operator setup workflow demonstration" />
-            <CaseVideo src={img.operatorFields} alt="Operator fields workflow demonstration" />
-            <CaseVideo src={img.actions} alt="Workflow actions demonstration" />
+            <CaseVideo src={img.operatorSetup} alt="Operator setup workflow demonstration" onClick={() => openLightbox(img.operatorSetup, 'Operator setup workflow demonstration')} />
+            <CaseVideo src={img.operatorFields} alt="Operator fields workflow demonstration" onClick={() => openLightbox(img.operatorFields, 'Operator fields workflow demonstration')} />
+            <CaseVideo src={img.actions} alt="Workflow actions demonstration" onClick={() => openLightbox(img.actions, 'Workflow actions demonstration')} />
           </div>
 
           {/* Right: all text sections stacked */}
