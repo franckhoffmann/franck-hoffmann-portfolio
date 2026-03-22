@@ -330,7 +330,7 @@ function TheCallText() {
           The first challenge was navigation and information architecture. Users were getting lost inside a product they used every day. We mapped their actual workflows, identified where the friction lived, and restructured the experience around how people thought about their work rather than how the system was organized.
         </p>
         <p className="text-base font-light leading-[26px] text-neutral-700">
-          The second challenge was scalability. Orange Logic's clients ranged from small creative agencies to global broadcasters. A single interface had to serve radically different use cases without becoming a bloated, compromised experience for everyone. The answer was a modular design system: components that could be configured and extended per client without requiring custom development for every deployment.
+          The second challenge was scalability. Orange Logic's clients ranged from independent media studios to global broadcasters. A single interface had to serve radically different use cases without becoming a bloated, compromised experience for everyone. The answer was a modular design system: components that could be configured and extended per client without requiring custom development for every deployment.
         </p>
       </div>
     </section>
