@@ -279,7 +279,7 @@ function TheCallText() {
           It was an uncomfortable conversation. It was also the right one.
         </SideQuote>
         <p className="text-base font-light leading-[26px] text-neutral-700">
-          This is one of the clearest examples I can point to of what happens when UX research is engaged before development begins versus after. Two quarters of rework, avoided. A product launched on the right foundation instead of a corrected one.
+          Two quarters of rework, avoided. A product launched on the right foundation instead of a corrected one. This is what happens when research leads.
         </p>
       </div>
     </section>
