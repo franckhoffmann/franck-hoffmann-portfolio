@@ -48,6 +48,7 @@ function Hero() {
           <span>—</span>
           <span>Clear.</span>
           <span>Human.</span>
+          <span>Cohesive.</span>
           <span>Effortless.</span>
         </div>
 
@@ -66,15 +67,15 @@ function Body() {
       <div className="mx-auto flex max-w-[65ch] flex-col gap-6">
 
         <p className="text-base font-light leading-[26px] text-neutral-700">
-          Design is choice architecture. Every screen, every flow, every interaction is a decision about what people see, what they do, and how they feel about it. Done well, it's invisible. Done poorly, it erodes trust one friction point at a time.
+          That's what gets me out of bed. Not the craft for its own sake, but the compounding effect of getting it right: products that feel Clear, Human, Cohesive, and Effortless — and that earn their place in the market. Teams that know why those things matter, not just how to execute them. Organizations that treat design as a strategic lever, not a finishing step.
         </p>
 
         <p className="text-base font-light leading-[26px] text-neutral-700">
-          That's what gets me out of bed. Not the craft for its own sake, but the compounding effect of getting it right: products that feel Clear, Human, Cohesive, and Effortless. Teams that know why those things matter, not just how to execute them. Organizations that treat design as a strategic lever, not a finishing step.
+          Every screen, every flow, every interaction is a decision about what people see, what they do, and how they feel about it. Most of those decisions get made quickly, under pressure, with incomplete information. The ones that get made well — with intention, with the user's mental model in mind, with an honest understanding of what's at stake — are the ones that build trust over time. The ones that don't erode it, one friction point at a time.
         </p>
 
         <p className="text-base font-light leading-[26px] text-neutral-700">
-          I've spent 20 years making the case for that standard, in boardrooms and backlogs, with executives and engineers, at companies ranging from boutique agencies to $7B acquisitions. The context changes. The belief doesn't.
+          I've spent 20+ years doing that work. In strategy sessions and delivery cycles, alongside executives and engineers, at companies where design had to prove its value and at companies where it already had a seat at the table. The scale has changed. The domain has changed. The belief hasn't.
         </p>
 
       </div>
