@@ -218,36 +218,68 @@ function CaseStudyBody({
         {/* ── Mobile / tablet ── */}
         <div className="flex flex-col gap-16 lg:hidden">
           <VimeoEmbed />
-          <SituationText />
-          <CaseImage
-            src={img.screenshot1}
-            alt="Cortex asset detail view"
-            onClick={() => openLightbox(img.screenshot1, 'Cortex asset detail view — full view')}
-          />
-          <TheCallText />
-          <CaptionedImage
-            src={img.before}
-            alt="Cortex interface, early 2000s"
-            caption="Cortex, early 2000s"
-            onClick={() => openLightbox(img.before, 'Cortex, early 2000s')}
-          />
-          <CaptionedImage
-            src={img.after}
-            alt="Cortex interface, 2019"
-            caption="Cortex, 2019"
-            onClick={() => openLightbox(img.after, 'Cortex, 2019')}
-          />
-          <CaseImage
-            src={img.screenshot2}
-            alt="Cortex project status workflow"
-            onClick={() => openLightbox(img.screenshot2, 'Cortex project status workflow — full view')}
-          />
-          <TheOutcomeText />
-          <CaseImage
-            src={img.screenshot3}
-            alt="Cortex asset library view"
-            onClick={() => openLightbox(img.screenshot3, 'Cortex asset library view — full view')}
-          />
+
+          {/* Situation */}
+          <div className="flex flex-col gap-8">
+            <SituationText />
+            <CaseImage
+              src={img.screenshot1}
+              alt="Cortex gallery view"
+              onClick={() => openLightbox(img.screenshot1, 'Cortex gallery view — full view')}
+            />
+          </div>
+
+          {/* The Call — interleaved */}
+          <div className="flex flex-col gap-8">
+            <div>
+              <SectionLabel>The Call</SectionLabel>
+              <div className="mt-6">
+                <p className="text-base font-light leading-[26px] text-neutral-700">
+                  The first challenge was navigation and information architecture. Users were getting lost inside a product they used every day. We mapped their actual workflows, identified where the friction lived, and restructured the experience around how people thought about their work rather than how the system was organized.
+                </p>
+              </div>
+            </div>
+            <CaseImage
+              src={img.screenshot2}
+              alt="Cortex project status workflow"
+              onClick={() => openLightbox(img.screenshot2, 'Cortex project status workflow — full view')}
+            />
+            <p className="text-base font-light leading-[26px] text-neutral-700">
+              The second challenge was scalability. Orange Logic's clients ranged from independent media studios to global broadcasters. A single interface had to serve radically different use cases without becoming a bloated, compromised experience for everyone. The answer was a modular design system: components that could be configured and extended per client without requiring custom development for every deployment.
+            </p>
+            <CaseImage
+              src={img.screenshot3}
+              alt="Cortex AI recognition view"
+              onClick={() => openLightbox(img.screenshot3, 'Cortex AI recognition view — full view')}
+            />
+          </div>
+
+          {/* The Outcome — interleaved */}
+          <div className="flex flex-col gap-8">
+            <div>
+              <SectionLabel>The Outcome</SectionLabel>
+              <div className="mt-6">
+                <p className="text-base font-light leading-[26px] text-neutral-700">
+                  That system became one of Orange Logic's most significant competitive advantages. It compressed implementation timelines, reduced client onboarding friction, and made it possible to serve enterprise clients at a scale that wasn't previously possible.
+                </p>
+              </div>
+            </div>
+            <CaptionedImage
+              src={img.before}
+              alt="Cortex interface, 2012"
+              caption="Cortex, 2012"
+              onClick={() => openLightbox(img.before, 'Cortex, 2012')}
+            />
+            <p className="text-base font-light leading-[26px] text-neutral-700">
+              Over seven years, the results compounded. Orange Logic grew 300%, entered a $3.5B market, and expanded its client portfolio to over 50 accounts including BBC, Facebook, Airbnb, and Boeing. I was promoted to Partner, joining the CEO and CTO on the leadership team.
+            </p>
+            <CaptionedImage
+              src={img.after}
+              alt="Cortex interface, 2019"
+              caption="Cortex, 2019"
+              onClick={() => openLightbox(img.after, 'Cortex, 2019')}
+            />
+          </div>
         </div>
 
         {/* ── Desktop: two-column grid (images | text) ── */}
@@ -272,9 +304,9 @@ function CaseStudyBody({
             />
             <CaptionedImage
               src={img.before}
-              alt="Cortex interface, early 2000s"
-              caption="Cortex, early 2000s"
-              onClick={() => openLightbox(img.before, 'Cortex, early 2000s')}
+              alt="Cortex interface, 2012"
+              caption="Cortex, 2012"
+              onClick={() => openLightbox(img.before, 'Cortex, 2012')}
             />
             <CaptionedImage
               src={img.after}
