@@ -141,23 +141,32 @@ function CaseImage({
   src,
   alt,
   onClick,
+  caption,
 }: {
   src: string
   alt: string
   onClick: () => void
+  caption?: string
 }) {
   return (
-    <button
-      onClick={onClick}
-      className="group w-full cursor-zoom-in text-left focus:outline-none"
-      aria-label={`Enlarge: ${alt}`}
-    >
-      <img
-        src={src}
-        alt={alt}
-        className="h-auto w-full object-contain transition-opacity group-hover:opacity-90"
-      />
-    </button>
+    <figure className="w-full">
+      <button
+        onClick={onClick}
+        className="group w-full cursor-zoom-in text-left focus:outline-none"
+        aria-label={`Enlarge: ${alt}`}
+      >
+        <img
+          src={src}
+          alt={alt}
+          className="h-auto w-full object-contain transition-opacity group-hover:opacity-90"
+        />
+      </button>
+      {caption && (
+        <figcaption className="mt-2 text-center text-xs text-neutral-400">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
   )
 }
 
@@ -182,18 +191,29 @@ function CaseStudyBody({
               src={img.dashboardInterface}
               alt="New SailPoint dashboard interface"
               onClick={() => openLightbox(img.dashboardBig, 'New SailPoint dashboard — full view')}
+              caption="MySailPoint, a dashboard built for decisions"
             />
             <SituationText />
           </div>
 
-          {/* The Call */}
+          {/* The Call — image inserted after first paragraph */}
           <div className="flex flex-col gap-8">
+            <div>
+              <SectionLabel>The Call</SectionLabel>
+              <div className="mt-6">
+                <p className="text-base font-light leading-[26px] text-neutral-700">
+                  We started where it always starts: with the people who would use it. Through iterative research sessions, we mapped what administrators actually needed at the start of their day — not what the data team found interesting, not what engineering could surface easily, but what created genuine value for the person sitting down with their morning coffee.
+                </p>
+              </div>
+            </div>
             <CaseImage
               src={img.miroProcess}
               alt="Research and design process board"
               onClick={() => openLightbox(img.processBig, 'Research and design process — full view')}
             />
-            <TheCallText />
+            <SideQuote>
+              That research gave us two things: a clear point of view on which widgets mattered most, and the credibility to have difficult conversations with the Data Intelligence and API teams about what would actually need to be built to support them.
+            </SideQuote>
           </div>
 
           {/* The Outcome */}
@@ -202,6 +222,7 @@ function CaseStudyBody({
               src={img.oldDashboard}
               alt="Old dashboard vs new dashboard comparison"
               onClick={() => openLightbox(img.oldDashboardBig, 'Old vs new dashboard — full view')}
+              caption="SailPoint's old dashboard"
             />
             <TheOutcomeText />
           </div>
@@ -215,6 +236,7 @@ function CaseStudyBody({
               src={img.dashboardInterface}
               alt="New SailPoint dashboard interface"
               onClick={() => openLightbox(img.dashboardBig, 'New SailPoint dashboard — full view')}
+              caption="MySailPoint, a dashboard built for decisions"
             />
             <CaseImage
               src={img.miroProcess}
@@ -225,6 +247,7 @@ function CaseStudyBody({
               src={img.oldDashboard}
               alt="Old dashboard vs new dashboard comparison"
               onClick={() => openLightbox(img.oldDashboardBig, 'Old vs new dashboard — full view')}
+              caption="SailPoint's old dashboard"
             />
           </div>
 
