@@ -148,17 +148,10 @@ export default function Nav() {
           to="/"
           className="shrink-0 text-sm font-semibold text-black hover:opacity-80"
         >
-          {/* Below 768px (mobile): show full tagline */}
-          <span className="md:hidden">
-            Franck Hoffmann{' '}
-            <span className="font-normal text-neutral-400">— Product Design Leader</span>
-          </span>
-          {/* 768px–960px: name only */}
-          <span className="hidden md:inline min-[1054px]:hidden">Franck Hoffmann</span>
-          {/* Above 960px: name + tagline */}
-          <span className="hidden min-[1054px]:inline">
-            Franck Hoffmann{' '}
-            <span className="font-normal text-neutral-400">— Product Design Leader</span>
+          Franck Hoffmann
+          {/* Hide tagline between 768px and 1054px to free space for nav items */}
+          <span className="font-normal text-neutral-400 md:hidden min-[1054px]:inline">
+            {' '}— Product Design Leader
           </span>
         </Link>
 
