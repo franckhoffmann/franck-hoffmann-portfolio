@@ -264,21 +264,21 @@ function CaseStudyBody({
                 </p>
               </div>
             </div>
-            <CaptionedImage
+            {/* <CaptionedImage
               src={img.before}
               alt="Cortex interface, 2012"
               caption="Cortex, 2012"
               onClick={() => openLightbox(img.before, 'Cortex, 2012')}
-            />
+            /> */}
             <p className="text-base font-light leading-[26px] text-neutral-700">
               Over seven years, the results compounded. Orange Logic grew 300%, entered a $3.5B market, and expanded its client portfolio to over 50 accounts including BBC, Facebook, Airbnb, and Boeing. I was promoted to Partner, joining the CEO and CTO on the leadership team.
             </p>
-            <CaptionedImage
+            {/* <CaptionedImage
               src={img.after}
               alt="Cortex interface, 2019"
               caption="Cortex, 2019"
               onClick={() => openLightbox(img.after, 'Cortex, 2019')}
-            />
+            /> */}
           </div>
         </div>
 
@@ -302,18 +302,18 @@ function CaseStudyBody({
               alt="Cortex asset library view"
               onClick={() => openLightbox(img.screenshot3, 'Cortex asset library view — full view')}
             />
-            <CaptionedImage
+            {/* <CaptionedImage
               src={img.before}
               alt="Cortex interface, 2012"
               caption="Cortex, 2012"
               onClick={() => openLightbox(img.before, 'Cortex, 2012')}
-            />
-            <CaptionedImage
+            /> */}
+            {/* <CaptionedImage
               src={img.after}
               alt="Cortex interface, 2019"
               caption="Cortex, 2019"
               onClick={() => openLightbox(img.after, 'Cortex, 2019')}
-            />
+            /> */}
           </div>
 
           {/* Right: all text sections stacked */}
