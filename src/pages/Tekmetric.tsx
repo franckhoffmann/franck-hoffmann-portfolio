@@ -10,7 +10,7 @@ const base = import.meta.env.BASE_URL
 const img = {
   hero: `${base}images/tekmetric-hero.jpg`,
   plg: `${base}images/tekmetric-plg-optimized.webp`,
-  dashboard: `${base}images/tekmetric-tms-dashboard-optimized.webp`,
+  dashboard: `${base}images/tekmetric-marketing-dashboard-optimized.webp`,
   booking: `${base}images/tekmetric-booking-tool.jpg`,
   campaigns: `${base}images/tekmetric-customer-campaigns-optimized.webp`,
   filters: `${base}images/tekmetric-filters-optimized.webp`,
