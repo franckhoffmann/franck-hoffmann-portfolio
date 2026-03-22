@@ -81,9 +81,6 @@ function Body() {
           <p className="text-base font-light leading-[26px] text-neutral-700">
             Process is only useful if it serves people, not the other way around. At its core, I think of design as choice architecture. Every decision shapes what people see, what they do, and how they feel. The frameworks I use exist to serve that belief, not the other way around.
           </p>
-          <p className="text-base font-light leading-[26px] text-neutral-700">
-            I don't have a fixed methodology. I have a set of convictions about what good design process looks like, and I adapt from there depending on the team, the problem, and the constraints.
-          </p>
         </div>
 
         {/* Start with Who */}
@@ -122,15 +119,15 @@ function Body() {
         <div className="flex flex-col gap-4">
           <SectionLabel>Lead people, not just projects</SectionLabel>
           <p className="text-base font-light leading-[26px] text-neutral-700">
-            The best design process in the world fails without a team that's motivated, aligned, and psychologically safe enough to push back. In every 1:1, I start with the person, not the project. Understanding what someone is trying to grow into is as important as understanding what they're working on.
+            The best design process in the world fails without a team that's motivated, aligned, and safe enough to push back. In every 1:1, I start with the person, not the project. Understanding what someone is trying to grow into is as important as understanding what they're working on.
           </p>
         </div>
 
-        {/* Know when to let go */}
+        {/* Use the right tool */}
         <div className="flex flex-col gap-4">
-          <SectionLabel>Know when to let go of the framework</SectionLabel>
+          <SectionLabel>Use the right tool for the job</SectionLabel>
           <p className="text-base font-light leading-[26px] text-neutral-700">
-            The Double Diamond, Design Thinking, Jobs to Be Done. These are tools, not rules. I use them when they serve the work. When they don't, I set them aside. What matters is the outcome, not the methodology used to get there.
+            The Double Diamond, Design Thinking, Jobs to Be Done, Opportunity Solution Trees, Design Sprints — I've worked with them all, and I've learned that no single framework fits every problem. The skill isn't in picking one and following it faithfully. It's in knowing which lens clarifies the problem in front of you, when to blend approaches, and when to invent something new from first principles. What matters is the outcome, not methodological purity.
           </p>
         </div>
 
