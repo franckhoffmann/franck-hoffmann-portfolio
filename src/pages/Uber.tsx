@@ -233,7 +233,7 @@ function SituationText() {
           No drivers, no rides. No rides, no business. Uber's entire model depended on a steady supply of people willing to get behind the wheel, and the cost of acquiring each one was eating into margins. The digital marketing team had a single metric that mattered: drivers onboarded divided by total marketing spend.
         </p>
         <p className="text-base leading-[26px] text-neutral-900">
-          They came to us to move that number through UX.
+          The ask was simple: move that number through UX.
         </p>
       </div>
     </section>
