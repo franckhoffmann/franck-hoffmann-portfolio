@@ -78,13 +78,13 @@ function Body() {
             That experience taught me something I've carried ever since: the most consequential design work happens at the layer beneath the interface. Not the pixels, but the systems, the decisions, the invisible architecture that shapes how people experience a product.
           </p>
           <p className="text-base font-light leading-[26px] text-neutral-700">
-            Over the next 20 years, I built and led design functions at companies navigating that same challenge at different scales. At Orange Logic, I transformed a platform already trusted by clients like BBC, Airbnb, and Boeing, evolving it into a scalable foundation that helped grow the business 300% into a $3.5B market. At Accenture, I worked with Uber and Salesforce on experiences where a single UX decision moved millions of dollars. At SailPoint, I led a lean team of 10 across 8 products, built a UX research practice from scratch, and contributed to a $7B acquisition. At Tekmetric, I'm scaling design inside a company that crossed $100M ARR, rebuilding the function, launching new products, and pioneering its first PLG motion.
+            Over the next 20 years, the challenge stayed the same — design the invisible layer that makes a product trustworthy at scale. At Orange Logic, I joined as the first designer, helped land and grow a client portfolio including BBC, Airbnb, Boeing, and many more, a foundation that drove 300% growth into a $3.5B market — and earned me a promotion to Partner. At Accenture, I worked with Uber and Salesforce on experiences where a single UX decision moved millions of dollars. At SailPoint, I led a lean team of 10 across 8 products, built a UX research practice from scratch, and contributed to a $7B acquisition. At Tekmetric, I'm rebuilding the design function, launching new products, and pioneering the company's first PLG motion inside a business that crossed $100M ARR.
           </p>
           <p className="text-base font-light leading-[26px] text-neutral-700">
-            What connects all of it is a consistent belief: that the best products are Clear, Human, Cohesive, and Effortless. Not as a checklist, but as a design standard that has to be earned at every decision point.
+            Through all of it, one belief has stayed constant: that the best products are Clear, Human, Cohesive, and Effortless. Not as a checklist, but as a design standard that has to be earned at every decision point.
           </p>
           <p className="text-base font-light leading-[26px] text-neutral-700">
-            I live in Austin with my two teenagers and an orange cat named Moose.
+            I live in Austin with my wife, two teenagers and an orange cat named Moose.
           </p>
         </div>
 
