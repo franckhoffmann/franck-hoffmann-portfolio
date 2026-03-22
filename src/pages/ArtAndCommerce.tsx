@@ -9,13 +9,10 @@ import Footer from '@/components/Footer'
 const base = import.meta.env.BASE_URL
 const img = {
   hero: `${base}images/art-commerce-hero-optimized.webp`,
-  img018: `${base}images/art-commerce-018.jpg`,
   img001: `${base}images/art-commerce-001.jpg`,
-  img008: `${base}images/art-commerce-008.jpg`,
-  img009: `${base}images/art-commerce-009.jpg`,
+  img018: `${base}images/art-commerce-018.jpg`,
   img019: `${base}images/art-commerce-019.jpg`,
   img021: `${base}images/art-commerce-021.jpg`,
-  img022: `${base}images/art-commerce-022.jpg`,
 }
 
 // ---------------------------------------------------------------------------
@@ -173,19 +170,16 @@ function CaseStudyBody({
         {/* ── Mobile / tablet ── */}
         <div className="flex flex-col gap-16 lg:hidden">
           <div className="flex flex-col gap-8">
-            <CaseImage src={img.img018} alt="Art + Commerce platform interface" onClick={() => openLightbox(img.img018, 'Art + Commerce platform interface — full view')} />
-            <CaseImage src={img.img001} alt="Art + Commerce platform detail" onClick={() => openLightbox(img.img001, 'Art + Commerce platform detail — full view')} />
+            <CaseImage src={img.img001} alt="Art + Commerce homepage" onClick={() => openLightbox(img.img001, 'Art + Commerce homepage — full view')} />
+            <CaseImage src={img.img018} alt="Art + Commerce image archive page" onClick={() => openLightbox(img.img018, 'Art + Commerce image archive page — full view')} />
             <SituationText />
           </div>
           <div className="flex flex-col gap-8">
-            <CaseImage src={img.img008} alt="Art + Commerce image management" onClick={() => openLightbox(img.img008, 'Art + Commerce image management — full view')} />
-            <CaseImage src={img.img009} alt="Art + Commerce licensing interface" onClick={() => openLightbox(img.img009, 'Art + Commerce licensing interface — full view')} />
             <TheCallText />
           </div>
           <div className="flex flex-col gap-8">
-            <CaseImage src={img.img019} alt="Art + Commerce workflow view" onClick={() => openLightbox(img.img019, 'Art + Commerce workflow view — full view')} />
-            <CaseImage src={img.img021} alt="Art + Commerce project documentation" onClick={() => openLightbox(img.img021, 'Art + Commerce project documentation — full view')} />
-            <CaseImage src={img.img022} alt="Art + Commerce final platform view" onClick={() => openLightbox(img.img022, 'Art + Commerce final platform view — full view')} />
+            <CaseImage src={img.img019} alt="Art + Commerce image archive lightbox selection" onClick={() => openLightbox(img.img019, 'Art + Commerce image archive lightbox selection — full view')} />
+            <CaseImage src={img.img021} alt="Art + Commerce reorder portfolios" onClick={() => openLightbox(img.img021, 'Art + Commerce reorder portfolios — full view')} />
             <TheOutcomeText />
           </div>
         </div>
@@ -194,13 +188,10 @@ function CaseStudyBody({
         <div className="hidden lg:grid lg:grid-cols-[1fr_438px] lg:gap-16">
           {/* Left: all images stacked */}
           <div className="flex flex-col gap-[70px]">
-            <CaseImage src={img.img018} alt="Art + Commerce platform interface" onClick={() => openLightbox(img.img018, 'Art + Commerce platform interface — full view')} />
-            <CaseImage src={img.img001} alt="Art + Commerce platform detail" onClick={() => openLightbox(img.img001, 'Art + Commerce platform detail — full view')} />
-            <CaseImage src={img.img008} alt="Art + Commerce image management" onClick={() => openLightbox(img.img008, 'Art + Commerce image management — full view')} />
-            <CaseImage src={img.img009} alt="Art + Commerce licensing interface" onClick={() => openLightbox(img.img009, 'Art + Commerce licensing interface — full view')} />
-            <CaseImage src={img.img019} alt="Art + Commerce workflow view" onClick={() => openLightbox(img.img019, 'Art + Commerce workflow view — full view')} />
-            <CaseImage src={img.img021} alt="Art + Commerce project documentation" onClick={() => openLightbox(img.img021, 'Art + Commerce project documentation — full view')} />
-            <CaseImage src={img.img022} alt="Art + Commerce final platform view" onClick={() => openLightbox(img.img022, 'Art + Commerce final platform view — full view')} />
+            <CaseImage src={img.img001} alt="Art + Commerce homepage" onClick={() => openLightbox(img.img001, 'Art + Commerce homepage — full view')} />
+            <CaseImage src={img.img018} alt="Art + Commerce image archive page" onClick={() => openLightbox(img.img018, 'Art + Commerce image archive page — full view')} />
+            <CaseImage src={img.img019} alt="Art + Commerce image archive lightbox selection" onClick={() => openLightbox(img.img019, 'Art + Commerce image archive lightbox selection — full view')} />
+            <CaseImage src={img.img021} alt="Art + Commerce reorder portfolios" onClick={() => openLightbox(img.img021, 'Art + Commerce reorder portfolios — full view')} />
           </div>
 
           {/* Right: all text sections stacked */}
