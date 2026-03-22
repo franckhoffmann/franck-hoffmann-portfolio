@@ -14,7 +14,7 @@ const img = {
   booking: `${base}images/tekmetric-booking-tool.jpg`,
   campaigns: `${base}images/tekmetric-customer-campaigns-optimized.webp`,
   filters: `${base}images/tekmetric-filters-optimized.webp`,
-  googleReviews: `${base}images/tekmetric-google-reviews-optimized.webp`,
+  googleReviews: `${base}images/tekmetric-google-reviews-black-header-optimized.webp`,
 }
 
 // ---------------------------------------------------------------------------
