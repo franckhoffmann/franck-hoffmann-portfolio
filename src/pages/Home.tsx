@@ -436,7 +436,7 @@ export default function Home() {
                   className="float-left mr-4 mb-1 h-20 w-20 flex-shrink-0 rounded-full object-cover object-top md:float-none md:mr-0 md:mb-0 md:h-44 md:w-44"
                 />
                 <p className="text-base font-light leading-[26px] text-neutral-700">
-                  I've spent 20+ years leading product design at B2B and B2B2C SaaS companies where design was treated as a strategic lever. I build high-performing teams, ship products that move business outcomes, and pioneer experiences that earn trust. Currently Director of Product Design at Tekmetric.
+                  I've spent 20+ years leading product design at B2B and B2B2C SaaS companies where design was treated as a strategic lever. I build high-performing teams, ship products that move business outcomes, and pioneer experiences that earn trust.
                 </p>
               </div>
             </div>

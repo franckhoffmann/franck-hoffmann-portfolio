@@ -149,7 +149,7 @@ export default function Nav() {
           className="shrink-0 text-sm font-semibold text-black hover:opacity-80"
         >
           Franck Hoffmann
-          <span className="font-normal text-neutral-400 md:hidden min-[920px]:inline">
+          <span className="hidden max-[767px]:inline min-[920px]:inline font-normal text-neutral-400">
             {' '}— Product Design Leader
           </span>
         </Link>
