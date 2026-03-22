@@ -253,10 +253,7 @@ function SituationText() {
       <SectionLabel>The Situation</SectionLabel>
       <div className="mt-6 flex flex-col gap-6">
         <p className="text-base font-light leading-[26px] text-neutral-700">
-          Every morning, the person responsible for securing digital identities across an enterprise — who can access what, across thousands of employees, systems, and applications — opens their dashboard. For companies running SailPoint, one of the world's leading identity security platforms, that first screen sets the tone for the day.
-        </p>
-        <p className="text-base font-light leading-[26px] text-neutral-700">
-          The problem was that the screen they were opening wasn't built for them.
+          Every morning, the person responsible for securing digital identities across an enterprise needs information on who can access what, across thousands of employees, systems, and applications. For companies running SailPoint, one of the world's leading identity security platforms, a dashboard is where that work starts. The problem was that the screen they were opening wasn't built for them.
         </p>
         <p className="text-base font-light leading-[26px] text-neutral-700">
           The existing dashboard had been built without user research — it displayed data because data was available, not because anyone had asked what administrators actually needed to know. Customers called it a black box. Valuable insights existed inside the platform. They just couldn't find them, couldn't act on them, and eventually stopped looking.
@@ -275,7 +272,7 @@ function TheCallText() {
       <SectionLabel>The Call</SectionLabel>
       <div className="mt-6 flex flex-col gap-6">
         <p className="text-base font-light leading-[26px] text-neutral-700">
-          We started where we always start: with the people who would use it. Through iterative research sessions, we mapped what administrators actually needed at the start of their day — not what the data team found interesting, not what engineering could surface easily, but what created genuine value for the person sitting down with their morning coffee.
+          We started where it always starts: with the people who would use it. Through iterative research sessions, we mapped what administrators actually needed at the start of their day — not what the data team found interesting, not what engineering could surface easily, but what created genuine value for the person sitting down with their morning coffee.
         </p>
         <SideQuote>
           That research gave us two things: a clear point of view on which widgets mattered most, and the credibility to have difficult conversations with the Data Intelligence and API teams about what would actually need to be built to support them.
