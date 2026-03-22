@@ -111,7 +111,7 @@ function Body() {
 
         {/* The role I'm actually playing */}
         <div className="flex flex-col gap-4">
-          <SectionLabel>The role I'm actually playing</SectionLabel>
+          <SectionLabel>My role</SectionLabel>
           <p className="text-base font-light leading-[26px] text-neutral-700">
             I think of leadership less as a position and more as a service. My success is measured by what the team ships, how they grow, and whether they'd choose to work together again. If those three things are true, everything else follows.
           </p>
