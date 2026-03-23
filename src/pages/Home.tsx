@@ -375,7 +375,7 @@ function ReviewCarousel() {
         <button
           onClick={prev}
           aria-label="Previous review"
-          className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200 text-neutral-400 transition hover:border-neutral-400 hover:text-neutral-700"
+          className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-400 text-neutral-700 transition hover:bg-[#0055a5] hover:border-[#0055a5] hover:text-white"
         >
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="10 4 6 8 10 12" />
@@ -384,7 +384,7 @@ function ReviewCarousel() {
         <button
           onClick={next}
           aria-label="Next review"
-          className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200 text-neutral-400 transition hover:border-neutral-400 hover:text-neutral-700"
+          className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-400 text-neutral-700 transition hover:bg-[#0055a5] hover:border-[#0055a5] hover:text-white"
         >
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="6 4 10 8 6 12" />
