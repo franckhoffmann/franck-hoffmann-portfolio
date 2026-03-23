@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import { X } from 'lucide-react'
@@ -338,6 +338,7 @@ function LessonSection() {
 // ---------------------------------------------------------------------------
 
 export default function SailPointWorkflows() {
+  useEffect(() => { document.title = 'SailPoint Workflows — Franck Hoffmann' }, [])
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
 
   return (

@@ -410,6 +410,7 @@ function ReviewCarousel() {
 // ---------------------------------------------------------------------------
 
 export default function Home() {
+  useEffect(() => { document.title = 'Franck Hoffmann — Product Design Leader' }, [])
   return (
     <div className="flex min-h-screen flex-col">
       <Nav />

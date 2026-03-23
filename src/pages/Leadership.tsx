@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
@@ -127,6 +128,7 @@ function Body() {
 // ---------------------------------------------------------------------------
 
 export default function Leadership() {
+  useEffect(() => { document.title = 'Leadership — Franck Hoffmann' }, [])
   return (
     <div className="flex min-h-screen flex-col">
       <Nav />
