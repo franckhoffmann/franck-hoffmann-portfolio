@@ -421,7 +421,7 @@ export default function Home() {
         <Hero />
 
         {/* Content section */}
-        <div className="bg-[#f9fafb] px-6 pb-20 pt-16 md:px-12 md:pb-24 md:pt-20">
+        <div className="bg-[#f9fafb] px-6 pb-20 pt-6 md:px-12 md:pb-24 md:pt-20">
           <div className="mx-auto max-w-[1280px]">
 
             {/* Carousel */}

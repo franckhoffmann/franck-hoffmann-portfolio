@@ -2,22 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Franck Hoffmann</title>
+    <style>
+      html, body { margin: 0; background: #f9fafb; }
+    </style>
     <script>
-      // Single-Page App redirect for GitHub Pages.
-      // Saves the intended URL to sessionStorage, then redirects to the repo root.
-      // The script in index.html reads sessionStorage and restores the route.
-      var segmentCount = 1; // number of path segments in the repo base (always 1)
+      // SPA redirect for GitHub Pages — via https://github.com/rafgraph/spa-github-pages
+      // GitHub serves this 404.html for any unknown path. We encode the intended
+      // path as a query param and do a hard redirect to the repo root so that
+      // index.html (and React Router) can decode it and render the right page.
+      //
+      // segmentCount = 0 because the site is served at the domain root
+      // (custom domain franckhoffmann.com, base path = /).
+      // Use 1 only if the site lives under a subdirectory (e.g. username.github.io/repo-name/).
+      var segmentCount = 0;
       var l = window.location;
-      sessionStorage.redirect =
+      l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
         l.pathname.split('/').slice(0, 1 + segmentCount).join('/') +
         '/?/' +
         l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
         (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash;
+        l.hash
+      );
     </script>
-    <meta http-equiv="refresh" content="0;URL='/'" />
   </head>
   <body></body>
 </html>
