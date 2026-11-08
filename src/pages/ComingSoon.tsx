@@ -8,7 +8,7 @@ export default function ComingSoon({ title }: { title: string }) {
       <Nav />
       <main className="flex flex-1 items-center justify-center px-6">
         <div className="text-center">
-          <p className="font-['Liberation_Mono',monospace] text-xs uppercase tracking-widest text-neutral-400">
+          <p className="font-['Liberation_Mono','Cousine',monospace] text-xs uppercase tracking-widest text-neutral-400">
             Coming soon
           </p>
           <h1 className="mt-4 text-3xl font-bold text-neutral-900 md:text-4xl">{title}</h1>

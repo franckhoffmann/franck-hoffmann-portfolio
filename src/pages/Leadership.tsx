@@ -13,7 +13,7 @@ const img = {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-['Liberation_Mono',monospace] text-xs font-bold uppercase tracking-[1.4px] text-[#0055a5] md:text-sm">
+    <p className="font-['Liberation_Mono','Cousine',monospace] text-xs font-bold uppercase tracking-[1.4px] text-[#0055a5] md:text-sm">
       {children}
     </p>
   )

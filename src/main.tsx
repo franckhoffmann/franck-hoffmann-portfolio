@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router'
 import '@/styles/index.css'
 
 import Home from '@/pages/Home'
 import SailPointDashboard from '@/pages/SailPointDashboard'
 import Tekmetric from '@/pages/Tekmetric'
+import TekmetricDesignAgent from '@/pages/TekmetricDesignAgent'
 import SailPointWorkflows from '@/pages/SailPointWorkflows'
 import Uber from '@/pages/Uber'
 import OrangeLogic from '@/pages/OrangeLogic'
@@ -40,7 +41,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/how" element={<How />} />
         <Route path="/why" element={<Why />} />
         <Route path="/what/sailpoint-dashboard" element={<SailPointDashboard />} />
-        <Route path="/what/tekmetric" element={<Tekmetric />} />
+        <Route path="/what/tekmetric-design-agent" element={<TekmetricDesignAgent />} />
+        <Route path="/what/tekmetric-marketing" element={<Tekmetric />} />
+        {/* Old address of the Tekmetric Marketing page: keeps links in the resume and elsewhere working */}
+        <Route path="/what/tekmetric" element={<Navigate to="/what/tekmetric-marketing" replace />} />
         <Route path="/what/sailpoint-workflows" element={<SailPointWorkflows />} />
         <Route path="/what/uber" element={<Uber />} />
         <Route path="/what/orange-logic" element={<OrangeLogic />} />

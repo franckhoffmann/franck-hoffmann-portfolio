@@ -6,7 +6,8 @@ import { ChevronDown, Menu, X } from 'lucide-react'
 const base = import.meta.env.BASE_URL
 
 const WHAT_ITEMS = [
-  { label: 'Tekmetric', href: '/what/tekmetric' },
+  { label: 'Tekmetric Design Agent', href: '/what/tekmetric-design-agent' },
+  { label: 'Tekmetric Marketing', href: '/what/tekmetric-marketing' },
   { label: 'SailPoint Workflows', href: '/what/sailpoint-workflows' },
   { label: 'SailPoint Dashboard', href: '/what/sailpoint-dashboard' },
   { label: 'Uber', href: '/what/uber' },

@@ -396,7 +396,7 @@ function ReviewCarousel() {
       <div className="mt-6 text-center">
         <Link
           to="/endorsements"
-          className="font-['Liberation_Mono',monospace] text-xs uppercase tracking-[1.4px] text-[#0055a5] transition hover:text-[#003d7a]"
+          className="font-['Liberation_Mono','Cousine',monospace] text-xs uppercase tracking-[1.4px] text-[#0055a5] transition hover:text-[#003d7a]"
         >
           Read full endorsements →
         </Link>

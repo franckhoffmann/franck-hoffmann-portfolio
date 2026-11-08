@@ -44,12 +44,12 @@ export default function Footer() {
 
         {/* Bottom row */}
         <div className="mt-10 flex items-center justify-between border-t border-neutral-200 pt-6">
-          <p className="font-['Liberation_Mono',monospace] text-xs text-neutral-400">
+          <p className="font-['Liberation_Mono','Cousine',monospace] text-xs text-neutral-400">
             © {new Date().getFullYear()} Franck Hoffmann
           </p>
           <button
             onClick={scrollToTop}
-            className="font-['Liberation_Mono',monospace] text-xs text-neutral-400 transition-colors hover:text-neutral-700"
+            className="font-['Liberation_Mono','Cousine',monospace] text-xs text-neutral-400 transition-colors hover:text-neutral-700"
           >
             Back to Top ↑
           </button>

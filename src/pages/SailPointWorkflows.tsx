@@ -105,7 +105,7 @@ function Hero() {
         {/* Badge */}
         <div>
           <div className="inline-flex items-center gap-4 rounded-lg border border-white/10 bg-black/50 px-5 py-3.5 backdrop-blur-[2px]">
-            <span className="font-['Liberation_Mono',monospace] text-xs font-bold uppercase tracking-[0.35px] text-white md:text-sm">
+            <span className="font-['Liberation_Mono','Cousine',monospace] text-xs font-bold uppercase tracking-[0.35px] text-white md:text-sm">
               SailPoint Workflows
             </span>
             <span className="h-1.5 w-1.5 rounded-full bg-[#0055a5]" aria-hidden />
@@ -125,7 +125,7 @@ function Hero() {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-['Liberation_Mono',monospace] text-xs font-bold uppercase tracking-[1.4px] text-[#0055a5] md:text-sm">
+    <h2 className="font-['Liberation_Mono','Cousine',monospace] text-xs font-bold uppercase tracking-[1.4px] text-[#0055a5] md:text-sm">
       {children}
     </h2>
   )
