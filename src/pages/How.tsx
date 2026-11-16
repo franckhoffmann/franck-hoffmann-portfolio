@@ -1,10 +1,13 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router'
+import { Maximize2 } from 'lucide-react'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import { StackLightbox, STACK_ALT, stackImages } from '@/components/StackLightbox'
 
 const base = import.meta.env.BASE_URL
 const img = {
-  hero: `${base}images/hero-how.jpg`,
+  hero: `${base}images/hero-how2.webp`,
   riskClarity: `${base}images/how-risk-clarity.png`,
 }
 
@@ -33,10 +36,11 @@ function Hero() {
       <img
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 h-full w-full object-cover object-[72%_center] md:object-center"
         src={img.hero}
       />
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Phones: an even tint. Wider screens: darker behind the text and the handwriting, lighter over the screen on the right */}
+      <div className="absolute inset-0 bg-black/50 md:bg-transparent md:bg-linear-to-r md:from-black/85 md:from-0% md:via-black/65 md:via-35% md:to-black/10 md:to-100%" />
 
       <div className="relative z-10 flex h-full flex-col justify-between pl-8 pr-6 pb-8 pt-14 md:pl-16 md:pr-12 md:pb-14 md:pt-20 lg:pb-16 lg:pt-24">
 
@@ -73,6 +77,7 @@ function Hero() {
 // ---------------------------------------------------------------------------
 
 function Body() {
+  const [stackOpen, setStackOpen] = useState(false)
   return (
     <div className="bg-[#f9fafb] px-6 pb-16 pt-16 md:px-12 md:pb-20 md:pt-20 lg:pt-24 lg:pb-24">
       <div className="mx-auto flex max-w-[65ch] flex-col gap-10">
@@ -132,7 +137,42 @@ function Body() {
           </p>
         </div>
 
+        {/* The design agent: the practice above, written down for an agent */}
+        <div className="flex flex-col gap-4">
+          <SectionLabel>Write the judgment down</SectionLabel>
+          <p className="text-base font-light leading-[26px] text-neutral-700">
+            At Tekmetric, I built a design agent on Claude Code. It starts where this page does, with who we design for, then adds our 4 design principles, the rules for settling trade-offs, and a design system read from production code. It drafts, checks its own work, and brings every real decision back to a designer. It's choice architecture again, this time for an agent. 8 designers use it today.
+          </p>
+          <button
+            onClick={() => setStackOpen(true)}
+            className="group relative block w-full cursor-zoom-in overflow-hidden rounded-lg border border-neutral-200 bg-[#f3eee4] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0055a5] focus-visible:ring-offset-2"
+            aria-label="Open the design agent's stack graphic full size"
+          >
+            <img
+              src={stackImages.preview}
+              alt={STACK_ALT}
+              width={2560}
+              height={1364}
+              loading="lazy"
+              decoding="async"
+              className="block h-auto w-full"
+            />
+            <span className="absolute bottom-2 right-2 inline-flex items-center gap-1.5 rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-xs font-medium text-neutral-900 shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-colors group-hover:bg-neutral-100 md:bottom-3 md:right-3">
+              Open full size
+              <Maximize2 className="h-3.5 w-3.5" aria-hidden />
+            </span>
+          </button>
+          <Link
+            to="/what/tekmetric-design-agent"
+            className="self-start text-base font-medium leading-[26px] text-[#0055a5] underline-offset-4 transition hover:text-[#003d7a] hover:underline"
+          >
+            See how the design agent works →
+          </Link>
+        </div>
+
       </div>
+
+      {stackOpen && <StackLightbox isOpen onClose={() => setStackOpen(false)} />}
     </div>
   )
 }

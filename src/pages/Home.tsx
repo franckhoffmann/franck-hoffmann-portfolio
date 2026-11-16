@@ -97,10 +97,11 @@ function Hero() {
       <img
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover object-center"
-        src={`${base}hero-bg.jpg`}
+        className="absolute inset-0 h-full w-full object-cover object-[80%_center] md:object-[70%_center] lg:object-center"
+        src={`${base}hero-bg.webp`}
       />
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Darker behind the text, lighter over the lamp: left-to-right on desktop, top and bottom on phones */}
+      <div className="absolute inset-0 bg-linear-to-b from-black/60 from-35% via-black/15 via-55% to-black/60 to-80% md:bg-linear-to-r md:from-black/60 md:from-0% md:via-black/35 md:via-50% md:to-black/5 md:to-100%" />
 
       <div className="relative z-10 flex h-full flex-col justify-between pl-8 pr-6 pb-8 pt-14 md:pl-16 md:pr-12 md:pb-14 md:pt-20 lg:pb-16 lg:pt-24">
 

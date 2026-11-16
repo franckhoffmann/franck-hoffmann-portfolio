@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
 const base = import.meta.env.BASE_URL
 const img = {
-  hero: `${base}images/hero-leadership.jpg`,
+  hero: `${base}images/hero-leadership2.webp`,
 }
 
 // ---------------------------------------------------------------------------
@@ -32,10 +33,11 @@ function Hero() {
       <img
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 h-full w-full object-cover object-[55%_center] md:object-[center_20%]"
         src={img.hero}
       />
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Phones: an even tint. Wider screens: darker on the left behind the text, lighter over Franck */}
+      <div className="absolute inset-0 bg-black/50 md:bg-transparent md:bg-linear-to-r md:from-black/80 md:from-0% md:via-black/55 md:via-35% md:to-black/10 md:to-70%" />
 
       <div className="relative z-10 flex h-full flex-col justify-between pl-8 pr-6 pb-8 pt-14 md:pl-16 md:pr-12 md:pb-14 md:pt-20 lg:pb-16 lg:pt-24">
 
@@ -57,9 +59,9 @@ function Hero() {
         {/* Bottom-left: tagline */}
         <div className="flex flex-col gap-0 text-[1.5rem] font-bold leading-tight text-white/80 md:text-[2rem]">
           <span>—</span>
-          <span>Mentoring.</span>
-          <span>Supporting.</span>
-          <span>Facilitating.</span>
+          <span>Direction.</span>
+          <span>People.</span>
+          <span>Standards.</span>
         </div>
 
       </div>
@@ -70,6 +72,33 @@ function Hero() {
 // ---------------------------------------------------------------------------
 // Body
 // ---------------------------------------------------------------------------
+
+// Evidence for the page's claims. Quotes are word for word from /endorsements.
+const PRACTICE = [
+  {
+    kicker: 'Shipping a new product',
+    title: 'Tekmetric Marketing Suite',
+    note: 'A new product on a fixed date. Weekly design reviews on the decisions that affect adoption, and a close partnership with the Director of PM.',
+    link: 'Read the case study →',
+    to: '/what/tekmetric-marketing',
+  },
+  {
+    kicker: 'Scaling design judgment',
+    title: 'The Tekmetric Design Agent',
+    note: 'Our principles, personas and design system, written down so 8 designers and an agent work from the same standard.',
+    link: 'Read the case study →',
+    to: '/what/tekmetric-design-agent',
+  },
+  {
+    kicker: 'Building a design team',
+    title:
+      'The UX team was a loose group of designers - Franck helped introduce structure and a collaborative environment. He worked to balance the urgent with the strategic.',
+    quote: true,
+    note: 'Dan Martillotti, VP of Product Management at SailPoint',
+    link: 'Read the endorsements →',
+    to: '/endorsements',
+  },
+]
 
 function Body() {
   return (
@@ -86,11 +115,19 @@ function Body() {
           </p>
         </div>
 
-        {/* Empowerment over direction */}
+        {/* Direction and empowerment */}
         <div className="flex flex-col gap-4">
-          <SectionLabel>Empowerment over direction</SectionLabel>
+          <SectionLabel>Set the destination, not the route</SectionLabel>
           <p className="text-base font-light leading-[26px] text-neutral-700">
-            Your expertise is why you're here. My job isn't to tell you what to do. It's to make sure you have what you need to make good decisions. That means clear context, honest feedback, and a leader who shields the team from noise rather than adding to it.
+            I set where we're going and why: the problem worth solving, the product we're building toward, and what good looks like when we get there. How we get there is the team's call. Your expertise is why you're here. My job isn't to tell you what to do. It's to make sure you have what you need to make good decisions: clear context, honest feedback, and a leader who shields the team from noise rather than adding to it.
+          </p>
+        </div>
+
+        {/* A vision worth building */}
+        <div className="flex flex-col gap-4">
+          <SectionLabel>A vision worth building</SectionLabel>
+          <p className="text-base font-light leading-[26px] text-neutral-700">
+            A vision isn't a slide. It's a picture of the product specific enough that design, product and engineering can argue about it. I build it with product and engineering leadership. Then comes the harder part: getting the organization to commit to it, and turning it into decisions the team can make without me.
           </p>
         </div>
 
@@ -106,7 +143,7 @@ function Body() {
         <div className="flex flex-col gap-4">
           <SectionLabel>A clear standard</SectionLabel>
           <p className="text-base font-light leading-[26px] text-neutral-700">
-            I hold the team to a high bar: Clear, Human, Cohesive, and Effortless. Not as a checklist, but as a shared language for what good looks like. When everyone on the team can articulate why something isn't working yet, you stop having taste arguments and start having productive ones.
+            I wrote Tekmetric's 4 product design principles: Clear, Human, Cohesive, and Effortless. They're the bar the team holds itself to. Not as a checklist, but as a shared language for what good looks like. When everyone on the team can articulate why something isn't working yet, you stop having taste arguments and start having productive ones.
           </p>
         </div>
 
@@ -116,6 +153,34 @@ function Body() {
           <p className="text-base font-light leading-[26px] text-neutral-700">
             I think of leadership less as a position and more as a service. My success is measured by what the team ships, how they grow, and whether they'd choose to work together again. If those three things are true, everything else follows.
           </p>
+        </div>
+
+        {/* In practice: links to the evidence */}
+        <div className="flex flex-col gap-2 pt-2">
+          <SectionLabel>In practice</SectionLabel>
+          <div className="flex flex-col">
+            {PRACTICE.map(item => (
+              <div key={item.kicker} className="flex flex-col gap-1.5 border-t border-neutral-200 py-6 first:mt-4">
+                <span className="font-['Liberation_Mono','Cousine',monospace] text-xs font-bold uppercase tracking-[1.2px] text-neutral-500">
+                  {item.kicker}
+                </span>
+                {item.quote ? (
+                  <blockquote className="text-base font-medium italic leading-[1.5] text-neutral-900">
+                    &ldquo;{item.title}&rdquo;
+                  </blockquote>
+                ) : (
+                  <span className="text-base font-bold leading-[1.5] text-neutral-900">{item.title}</span>
+                )}
+                <span className="text-sm font-light leading-[1.5] text-neutral-600">{item.note}</span>
+                <Link
+                  to={item.to}
+                  className="self-start text-sm font-medium leading-[1.5] text-[#0055a5] underline-offset-4 transition hover:text-[#003d7a] hover:underline"
+                >
+                  {item.link}
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

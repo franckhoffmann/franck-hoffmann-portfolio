@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 
 const base = import.meta.env.BASE_URL
 const img = {
-  hero: `${base}images/hero-why.jpg`,
+  hero: `${base}images/hero-why2.webp`,
 }
 
 // ---------------------------------------------------------------------------
@@ -23,7 +23,7 @@ function Hero() {
         className="absolute inset-0 h-full w-full object-cover object-center"
         src={img.hero}
       />
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/20" />
 
       <div className="relative z-10 flex h-full flex-col justify-between pl-8 pr-6 pb-8 pt-14 md:pl-16 md:pr-12 md:pb-14 md:pt-20 lg:pb-16 lg:pt-24">
 
