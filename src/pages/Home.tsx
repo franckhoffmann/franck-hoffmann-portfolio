@@ -25,13 +25,13 @@ const REVIEWS = [
   {
     quote: "Franck's maturity in UX principles, psychology, and strategy is highly sophisticated. What is highly differentiating is his approach to people leadership and the inclusion of empathy not only in his craft but also his leadership.",
     name: "Jeffrey Robbins",
-    title: "Sr. UX Researcher at SailPoint",
+    title: "Product Manager - genAI at SailPoint",
     avatar: `${base}images/endorsement-jeffrey-robbins.jpg`,
   },
   {
     quote: "Franck is thoughtful, well-read, patient, and a high EQ UX leader. He is excellent at connecting, attracting, retaining, and growing UI and UX talent. If you are looking for a user experience change agent, leader — give Franck a call.",
     name: "Amar Rama",
-    title: "SVP of Product Management at BackBox",
+    title: "SVP of Product Management at Osano",
     avatar: `${base}images/endorsement-amar-rama.jpg`,
   },
   {
@@ -49,7 +49,7 @@ const REVIEWS = [
   {
     quote: "Franck is constantly questioning the status quo and pushing the boundaries of what's possible. He is a design thinker who utilizes his strong quantitative and qualitative skills to inspire innovative ideas.",
     name: "Randall Gibson",
-    title: "Director of Growth at Matillion",
+    title: "Vice President of Growth at SingleStore",
     avatar: `${base}images/endorsement-randall-gibson.jpg`,
   },
   {
@@ -61,7 +61,7 @@ const REVIEWS = [
   {
     quote: "Franck is a passionate, thoughtful UX leader. Working alongside him to understand business problems was thought-provoking.",
     name: "Christine Whitlock",
-    title: "Sr. Product Manager at SailPoint",
+    title: "Senior Manager, Product Management at SailPoint",
     avatar: `${base}images/endorsement-christine-whitlock.jpg`,
   },
   {
@@ -73,7 +73,7 @@ const REVIEWS = [
   {
     quote: "Franck always brings a spirit of collaboration and open ideation to every meeting. It was great to see the wonderful progress that SailPoint achieved under his guidance. As an engineer, it was great to see my input well received and understood by my UX partner.",
     name: "Ben Coble",
-    title: "Staff UI Developer at SailPoint",
+    title: "Sr. Staff UI Developer at SailPoint",
     avatar: `${base}images/endorsement-ben-coble.jpg`,
   },
   {
