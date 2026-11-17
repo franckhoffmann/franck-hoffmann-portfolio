@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 
 const base = import.meta.env.BASE_URL
 const img = {
-  hero: `${base}images/hero-leadership2.webp`,
+  hero: `${base}images/hero-leadership3.webp`,
 }
 
 // ---------------------------------------------------------------------------
