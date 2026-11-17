@@ -25,7 +25,7 @@ const REVIEWS = [
   {
     quote: "Franck's maturity in UX principles, psychology, and strategy is highly sophisticated. What is highly differentiating is his approach to people leadership and the inclusion of empathy not only in his craft but also his leadership.",
     name: "Jeffrey Robbins",
-    title: "Product Manager - genAI at SailPoint",
+    title: "Product Manager, GenAI at SailPoint",
     avatar: `${base}images/endorsement-jeffrey-robbins.jpg`,
   },
   {
@@ -43,13 +43,13 @@ const REVIEWS = [
   {
     quote: "Franck was instrumental in driving the product's UX vision. Under his leadership, we were able to make many strides in improving the customer experience and have common design language. Working alongside him has been a privilege.",
     name: "Stefan Estrada",
-    title: "Senior Engineering Manager at SailPoint",
+    title: "Sr. Engineering Manager at SailPoint",
     avatar: `${base}images/endorsement-stefan-estrada.jpg`,
   },
   {
     quote: "Franck is constantly questioning the status quo and pushing the boundaries of what's possible. He is a design thinker who utilizes his strong quantitative and qualitative skills to inspire innovative ideas.",
     name: "Randall Gibson",
-    title: "Vice President of Growth at SingleStore",
+    title: "VP of Growth at SingleStore",
     avatar: `${base}images/endorsement-randall-gibson.jpg`,
   },
   {
@@ -61,7 +61,7 @@ const REVIEWS = [
   {
     quote: "Franck is a passionate, thoughtful UX leader. Working alongside him to understand business problems was thought-provoking.",
     name: "Christine Whitlock",
-    title: "Senior Manager, Product Management at SailPoint",
+    title: "Sr. Manager, Product Management at SailPoint",
     avatar: `${base}images/endorsement-christine-whitlock.jpg`,
   },
   {

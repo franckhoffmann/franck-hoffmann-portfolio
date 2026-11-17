@@ -143,7 +143,7 @@ function Body() {
         <Endorsement
           avatar={img.jeffreyRobbins}
           name="Jeffrey Robbins"
-          title="Product Manager - genAI at SailPoint"
+          title="Product Manager, GenAI at SailPoint"
           paragraphs={[
             "Franck's maturity in UX principles, psychology, and strategy is highly sophisticated. But you would expect that from the background of experiences in his profile. What is highly differentiating is his approach to people leadership and the inclusion of empathy not only in his craft but also his leadership. Ask him the three topical areas he prioritizes for a 1:1 discussion. I still remember hearing his approach during the interview process and being absolutely convinced that this was a leader and mentor I wanted to personally associate. He takes risks, trusts his employees, is very well read, and truly cares for everyone he interacts. Whether it was sharing a personal blog post on imposter syndrome in design on my first week or the perfect text citation to complement what the team needed for that day and week's challenges, Franck has a great ability to read the social context and motivate those around him with supporting, challenging, and often novel advice.",
           ]}
@@ -152,7 +152,7 @@ function Body() {
         <Endorsement
           avatar={img.amarRama}
           name="Amar Rama"
-          title="Senior Vice President Product Management at Osano"
+          title="SVP of Product Management at Osano"
           paragraphs={[
             "I worked with Franck at SailPoint. I recall when Franck first joined SailPoint, we had a small and spirited crew of UX designers. I admired Franck's ability to balance the urgent with the important. When the team is small and the debt list is large, it is easy to spent 98% of your time in just execution. It is rewarded and everyone sees the results. The downside of course is that you are constantly bailing the boat but not plugging the hole. Franck was great at finding time and ways to invest in building a center that could hold and grow. Creating a UX culture and process. Looking for opportunities to understand and inspire the UX talent. He was just as keen in educating the rest of the management on how Usability should be approached. In my opinion, this went a long way in helping SailPoint over the next several years.",
             "Franck is thoughtful, well read, patient and a high EQ UX leader. He is excellent at connecting, attracting, retaining, and growing UI, UX talent. If you are looking for a user experience / usability change agent, leader — give Franck a call.",
@@ -171,7 +171,7 @@ function Body() {
         <Endorsement
           avatar={img.stefanEstrada}
           name="Stefan Estrada"
-          title="Senior Engineering Manager at SailPoint"
+          title="Sr. Engineering Manager at SailPoint"
           paragraphs={[
             "It is my pleasure to recommend Franck. As a UI engineering manager, I worked closely with him at SailPoint on initiatives to improve the product's user experience and modernize its UI. Franck was instrumental in driving the product's UX vision and always thinking deeply about how to improve the experience for our customers. Under his leadership, we were able to make many strides in improving the customer experience and have common design language. Working alongside him has been a privilege, and I can confidently say he would be an invaluable asset to any organization aiming for design excellence.",
           ]}
@@ -180,7 +180,7 @@ function Body() {
         <Endorsement
           avatar={img.randallGibson}
           name="Randall Gibson"
-          title="Vice President of Growth at SingleStore"
+          title="VP of Growth at SingleStore"
           paragraphs={[
             "Franck is constantly questioning the status quo and pushing the boundaries of what's possible. He is a design thinker who utilizes his strong quantitative and qualitative skills to inspire innovative ideas. When I worked with Franck, I always found myself collaborating towards better ideas personally and professionally.",
             "What was great about him is that he is always thinking long-term about how to deliver value to human beings. In my eyes, this is what our innovators, consultants, and executives overlook. We lose focus on short term outcomes like dollar signs and revenue and forget that delivering long term value to human beings is what brings us the revenue.",
@@ -204,7 +204,7 @@ function Body() {
         <Endorsement
           avatar={img.christineWhitlock}
           name="Christine Whitlock"
-          title="Senior Manager, Product Management at SailPoint"
+          title="Sr. Manager, Product Management at SailPoint"
           paragraphs={[
             "Franck is a passionate, thoughtful UX leader. Working alongside him to understand business problems was thought-provoking, as he was always trying to challenge my way of thinking as a product manager to understand different points of view.",
             "In addition to his design expertise, Franck was one of the first people to reach out and congratulate me on a promotion into people management and offered tips and support in my new venture. I truly appreciated his offer without even having to ask and will always remember his outreach and interest in helping others.",
