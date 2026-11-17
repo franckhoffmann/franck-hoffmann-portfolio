@@ -40,7 +40,8 @@ function Hero() {
           src={img.hero}
         />
       </picture>
-      <div className="absolute inset-0 bg-black/55" />
+      {/* Phones: an even tint. Wider screens: darker behind the text, lighter on the right */}
+      <div className="absolute inset-0 bg-black/40 md:bg-transparent md:bg-linear-to-r md:from-black/60 md:from-0% md:via-black/40 md:via-35% md:to-black/10 md:to-100%" />
 
       <div className="relative z-10 flex h-full flex-col justify-between pl-8 pr-6 pb-8 pt-14 md:pl-16 md:pr-12 md:pb-14 md:pt-20 lg:pb-16 lg:pt-24">
 
