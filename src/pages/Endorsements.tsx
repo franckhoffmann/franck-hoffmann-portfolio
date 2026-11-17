@@ -4,7 +4,8 @@ import Footer from '@/components/Footer'
 
 const base = import.meta.env.BASE_URL
 const img = {
-  hero: `${base}images/hero-endorsements.jpg`,
+  hero: `${base}images/hero-endorsement2.webp`,
+  heroWide: `${base}images/hero-endorsement2-wide.webp`,
   jeffreyRobbins:     `${base}images/endorsement-jeffrey-robbins.jpg`,
   christineWhitlock:  `${base}images/endorsement-christine-whitlock.jpg`,
   danMartillotti:     `${base}images/endorsement-dan-martillotti.jpg`,
@@ -29,12 +30,16 @@ function Hero() {
       className="relative flex h-[70vh] w-full flex-col overflow-hidden"
       aria-label="Endorsements hero"
     >
-      <img
-        alt=""
-        aria-hidden
-        className="absolute inset-0 h-full w-full object-cover object-center"
-        src={img.hero}
-      />
+      {/* Same photo, turned on its side for wide screens so the hero shows the whole pattern */}
+      <picture>
+        <source media="(min-width: 768px)" srcSet={img.heroWide} />
+        <img
+          alt=""
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          src={img.hero}
+        />
+      </picture>
       <div className="absolute inset-0 bg-black/55" />
 
       <div className="relative z-10 flex h-full flex-col justify-between pl-8 pr-6 pb-8 pt-14 md:pl-16 md:pr-12 md:pb-14 md:pt-20 lg:pb-16 lg:pt-24">
