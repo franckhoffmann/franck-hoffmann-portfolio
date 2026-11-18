@@ -27,27 +27,29 @@ type Card = {
 const r = (...p: [number, number][]) => p.flatMap(([s, n]) => Array<number>(n).fill(s))
 const range = (n: number, hold: number) => [...Array.from({ length: n }, (_, i) => i), ...Array<number>(hold).fill(n - 1)]
 
+// Slots are placed so the liveliest cards land where the lamp leaves room on a
+// laptop screen: under the rim, right of the shade, and above it.
 const CARDS: Card[] = [
   { name: 'Calendar', Comp: C.Calendar, at: [0, 0, 1, 2], wave: 0, from: 'up', seq: r([0, 6], [1, 6], [2, 6]) },
   { name: 'Status', Comp: C.Status, at: [1, 0, 1, 1], wave: 0, from: 'left', seq: r([0, 5], [1, 11]), wait: 2 },
   { name: 'Payment', Comp: C.Payment, at: [2, 0, 2, 1], wave: 0, from: 'down', seq: r([0, 5], [1, 1], [2, 10]), wait: 3 },
-  { name: 'Ring', Comp: C.Ring, at: [4, 0, 1, 1], wave: 0, from: 'right', seq: r([0, 5], [1, 5], [2, 8]) },
-  { name: 'Toggles', Comp: C.Toggles, at: [5, 0, 1, 2], wave: 1, from: 'right', seq: r([0, 5], [1, 4], [2, 9]), wait: 4 },
+  { name: 'Ring', Comp: C.Ring, at: [4, 1, 1, 1], wave: 0, from: 'right', seq: r([0, 5], [1, 5], [2, 8]) },
+  { name: 'Toggles', Comp: C.Toggles, at: [2, 2, 1, 2], wave: 1, from: 'right', seq: r([0, 5], [1, 4], [2, 9]), wait: 4 },
   { name: 'Contacts', Comp: C.Contacts, at: [1, 1, 1, 2], wave: 1, from: 'down', seq: r([0, 4], [1, 3], [2, 9]) },
   { name: 'Voice', Comp: C.Voice, at: [2, 1, 2, 1], wave: 1, from: 'left', seq: range(20, 6) },
-  { name: 'Stat', Comp: C.Stat, at: [4, 1, 1, 1], wave: 1, from: 'up', seq: [...range(5, 1), ...r([4, 16])], wait: 1 },
+  { name: 'Stat', Comp: C.Stat, at: [5, 2, 1, 1], wave: 1, from: 'up', seq: [...range(5, 1), ...r([4, 16])], wait: 1 },
   { name: 'Amount', Comp: C.Amount, at: [0, 2, 1, 1], wave: 0, from: 'left', seq: r([0, 5], [1, 5], [2, 5]), wait: 5 },
-  { name: 'Split', Comp: C.Split, at: [2, 2, 1, 2], wave: 1, from: 'down', seq: r([0, 3], [1, 2], [2, 11]), wait: 6 },
+  { name: 'Split', Comp: C.Split, at: [5, 0, 1, 2], wave: 1, from: 'down', seq: r([0, 3], [1, 2], [2, 11]), wait: 6 },
   { name: 'Chat', Comp: C.Chat, at: [3, 2, 2, 1], wave: 1, from: 'left', seq: r([0, 4], [1, 4], [2, 10]) },
-  { name: 'Tabs', Comp: C.Tabs, at: [5, 2, 1, 1], wave: 2, from: 'right', seq: r([0, 6], [1, 6]), wait: 3 },
-  { name: 'Search', Comp: C.Search, at: [0, 3, 2, 1], wave: 1, from: 'up', seq: r([0, 3], [1, 1], [2, 1], [3, 1], [4, 1], [5, 1], [6, 1], [7, 1], [8, 9]), wait: 2 },
-  { name: 'Timer', Comp: C.Timer, at: [3, 3, 1, 1], wave: 2, from: 'down', seq: [...range(18, 0).flatMap((s) => [s, s]), ...r([18, 8])] },
+  { name: 'Tabs', Comp: C.Tabs, at: [4, 0, 1, 1], wave: 2, from: 'right', seq: r([0, 6], [1, 6]), wait: 3 },
+  { name: 'Search', Comp: C.Search, at: [2, 4, 2, 1], wave: 1, from: 'up', seq: r([0, 3], [1, 1], [2, 1], [3, 1], [4, 1], [5, 1], [6, 1], [7, 1], [8, 9]), wait: 2 },
+  { name: 'Timer', Comp: C.Timer, at: [4, 4, 1, 1], wave: 2, from: 'down', seq: [...range(18, 0).flatMap((s) => [s, s]), ...r([18, 8])] },
   { name: 'Rating', Comp: C.Rating, at: [4, 3, 1, 1], wave: 2, from: 'right', seq: r([0, 3], [1, 2], [2, 2], [3, 2], [4, 9]), wait: 2 },
   { name: 'Steps', Comp: C.Steps, at: [5, 3, 1, 2], wave: 2, from: 'down', seq: r([0, 5], [1, 5], [2, 8]), wait: 2 },
   { name: 'Stepper', Comp: C.Stepper, at: [0, 4, 1, 2], wave: 1, from: 'down', seq: r([0, 5], [1, 1], [2, 10]), wait: 4 },
   { name: 'Dark mode', Comp: C.DarkMode, at: [1, 4, 1, 1], wave: 1, from: 'left', seq: r([0, 6], [1, 6]), wait: 1 },
-  { name: 'Questions', Comp: C.Questions, at: [2, 4, 2, 1], wave: 2, from: 'up', seq: r([0, 4], [1, 10]), wait: 2 },
-  { name: 'Pay', Comp: C.Pay, at: [4, 4, 1, 1], wave: 2, from: 'right', seq: r([0, 7], [1, 7]), wait: 3 },
+  { name: 'Questions', Comp: C.Questions, at: [0, 3, 2, 1], wave: 2, from: 'up', seq: r([0, 4], [1, 10]), wait: 2 },
+  { name: 'Pay', Comp: C.Pay, at: [3, 3, 1, 1], wave: 2, from: 'right', seq: r([0, 7], [1, 7]), wait: 3 },
   { name: 'Avatars', Comp: C.Avatars, at: [1, 5, 1, 1], wave: 2, from: 'down', seq: r([0, 5], [1, 9]) },
   { name: 'Confirm', Comp: C.Confirm, at: [2, 5, 1, 1], wave: 3, from: 'down', seq: r([0, 6], [1, 10]), syncWith: 'Payment' },
   { name: 'Pay button', Comp: C.PayButton, at: [3, 5, 3, 1], wave: 3, from: 'right', seq: r([0, 5], [1, 4], [2, 9]), wait: 2 },
@@ -109,9 +111,11 @@ export default function UISpread() {
 
   // Centre the stage to the right of the quote, under the lamp
   const wide = size.w >= 1024
-  const scale = wide ? (size.w / 1684) * 1.22 : 0.5
-  const cx = size.w * (wide ? 0.53 : 0.55)
-  const cy = size.h * (wide ? 0.6 : 0.62)
+  // Zoomed out enough to read as a whole board, pinned to the top-right corner
+  // (no edge there); the left and bottom edges fade into the room
+  const scale = wide ? Math.min((size.w / 1684) * 1.05, (size.h / STAGE_H) * 1.4) : 0.42
+  const cx = wide ? size.w - (STAGE_W * scale) / 2 * 0.84 : size.w * 0.55
+  const cy = wide ? (STAGE_H * scale) / 2 * 0.86 : size.h * 0.6
 
   const stateOf = (c: Card) => {
     if (reduced) return c.seq[c.seq.length - 1]
@@ -133,6 +137,10 @@ export default function UISpread() {
           width: STAGE_W,
           height: STAGE_H,
           transform: `translate(-50%, -50%) scale(${scale}) perspective(2600px) rotateX(16deg) rotateZ(-5deg)`,
+          maskImage: EDGE_FADE,
+          WebkitMaskImage: EDGE_FADE,
+          maskComposite: 'intersect',
+          WebkitMaskComposite: 'source-in',
         }}
       >
         <div className="absolute inset-0 rounded-[32px] bg-[#EAECF0]" />
@@ -166,6 +174,9 @@ export default function UISpread() {
     </div>
   )
 }
+
+const EDGE_FADE =
+  'linear-gradient(to right, transparent 0%, #000 12%), linear-gradient(to bottom, #000 82%, transparent 100%)'
 
 const CSS = `
 .spread { font-family: Inter, sans-serif; }
