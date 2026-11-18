@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link } from 'react-router'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import UISpread from '@/components/spread/UISpread'
 
 const base = import.meta.env.BASE_URL
 
@@ -91,14 +92,27 @@ const REVIEWS = [
 function Hero() {
   return (
     <section
-      className="relative flex h-[70vh] w-full flex-col overflow-hidden"
+      className="relative flex h-[70vh] w-full flex-col overflow-hidden bg-[#0B3B4A]"
       aria-label="Home hero"
     >
+      {/* The room: an animated product spread, tinted teal, lit in true colour only under the lamp */}
+      <UISpread />
+      <div
+        aria-hidden
+        className="spread-sway pointer-events-none absolute -inset-x-[10%] inset-y-0 [--lx:62%] md:[--lx:60%] lg:[--lx:66%]"
+        style={{ background: 'radial-gradient(ellipse 40% 78% at var(--lx) 100%, rgba(12,79,99,0) 0%, rgba(12,79,99,.2) 30%, rgba(12,79,99,.8) 62%, rgba(10,60,76,.95) 100%)' }}
+      />
+      {/* Light falling from the lamp's rim (desktop crop only) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 hidden bg-linear-to-b from-[#FFF6DD]/25 from-[77%] to-transparent lg:block"
+        style={{ clipPath: 'polygon(55% 77%, 84% 77%, 100% 100%, 42% 100%)' }}
+      />
       <img
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover object-[80%_center] md:object-[70%_center] lg:object-center"
-        src={`${base}hero-bg.webp`}
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[80%_center] md:object-[70%_center] lg:object-center"
+        src={`${base}images/home-hero-lamp.webp`}
       />
       {/* Darker behind the text, lighter over the lamp: left-to-right on desktop, top and bottom on phones */}
       <div className="absolute inset-0 bg-linear-to-b from-black/60 from-35% via-black/15 via-55% to-black/60 to-80% md:bg-linear-to-r md:from-black/60 md:from-0% md:via-black/35 md:via-50% md:to-black/5 md:to-100%" />
