@@ -6,9 +6,13 @@
  * (e.g. /what/art-and-commerce) even though the 404.html JS-redirect trick
  * makes it work in a browser — Google still sees the 404 status and refuses
  * to index the page.
+ *
+ * Each copy gets its own canonical URL, with the trailing slash GitHub Pages
+ * redirects to (/who → /who/), so Google indexes every page on its own instead
+ * of treating it as a duplicate of the homepage. Keep public/sitemap.xml in step.
  */
 
-import { cpSync, mkdirSync } from 'fs'
+import { readFileSync, writeFileSync, mkdirSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -31,11 +35,25 @@ const routes = [
   'what/art-and-commerce',
 ]
 
+// Routes that redirect elsewhere point Google at the page they land on
+const canonicalRoute = {
+  'what/tekmetric': 'what/tekmetric-marketing',
+}
+
+const canonicalTag = /<link rel="canonical" href="[^"]*" \/>/
+const baseHtml = readFileSync(join(dist, 'index.html'), 'utf8')
+if (!canonicalTag.test(baseHtml)) {
+  console.error('✗ dist/index.html has no <link rel="canonical" href="…" /> tag to replace')
+  process.exit(1)
+}
+
 for (const route of routes) {
   const dir = join(dist, route)
   mkdirSync(dir, { recursive: true })
-  cpSync(join(dist, 'index.html'), join(dir, 'index.html'))
-  console.log(`  copied → dist/${route}/index.html`)
+  const canonical = `https://franckhoffmann.com/${canonicalRoute[route] ?? route}/`
+  const html = baseHtml.replace(canonicalTag, `<link rel="canonical" href="${canonical}" />`)
+  writeFileSync(join(dir, 'index.html'), html)
+  console.log(`  written → dist/${route}/index.html (canonical: ${canonical})`)
 }
 
 console.log(`\n✓ ${routes.length} route index files written`)
